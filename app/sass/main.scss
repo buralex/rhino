@@ -1,0 +1,149 @@
+@import "fonts";
+@import "vars";
+@import "libs";
+
+
+/*----------------------------------------------
+              mixins
+-----------------------------------------------*/
+
+/*12 columns default*/
+
+@mixin col($span, $context:12 ) {
+
+  width: percentage($span / $context);
+}
+/*----------------------------------------------
+              functions
+-----------------------------------------------*/
+@function col($span, $context:12 ) {
+
+  @return percentage($span / $context);
+}
+
+/* -----------------------------------------------------------------------------
+
+  			Clearfix and box-sizing
+
+----------------------------------------------------------------------------- */
+
+.clearfix {
+  &::before, &::after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/*------------------------------------------------------------------------------
+
+																MAIN STYLES                             
+
+------------------------------------------------------------------------------*/
+
+html, body {
+   height: 100%;
+   width : 100%;
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+
+html {
+	font-family: $font-default;
+	font-size: 10px;
+}
+
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.main-wrapper {
+	padding: 0 0 0 0;
+	min-width: 320px;
+	position: relative;
+	overflow: hidden;
+	min-height:100%;
+}
+
+.wrapper {
+	min-width: 320px;
+	max-width: 1200px;
+	//padding: 0 45px 0 45px;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* titles */
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.8rem;
+
+}
+h3 {
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+p {
+	font-size: 1.4rem;
+}
+
+/* text position */
+.text-left{text-align: left;}
+.text-center{text-align: center;}
+.text-right{text-align: right;}
+.nowrap{white-space: nowrap;}
+
+
+/* loader */
+.loaded .main-wrapper {
+	visibility:hidden;
+}
+.icon-load {
+	background:url(../img/loader3.gif) no-repeat left top;
+	width:40px;height:40px;position:fixed;
+	left:50%;
+	top:20px;
+	margin-left:-20px;
+	margin-left:-20px;
+	display:none;
+}
+.loaded .icon-load {
+	display:block;
+}
+/*------------------- highlighting -------------------------*/
+
+.outl-blue { outline: 1px solid blue; }
+.outl-green { outline: 1px solid green; }
+.outl-gold { outline: 1px solid gold; }
+.outl-red { outline: 1px solid red; }
+
+
+/*------------------- end highlighting -------------------------*/
+
+
+.wrapper {
+	//font-size: 1.5rem;
+  //@include layout(12 (200px 20px) inside-static fluid);
+}
+
+
+/*------------------------------------ MEDIA ------------------*/
+@import "media"; //always at the end
