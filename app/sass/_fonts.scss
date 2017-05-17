@@ -1,3 +1,18 @@
 
 
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+//font-family: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif:400,400i');
+//font-family: 'Droid Serif', serif;
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+@font-face {
+    font-family: "whisdom";
+    src: url("../fonts/whisdom/WisdomScriptAJ.eot");
+    src: url("../fonts/whisdom/WisdomScriptAJ.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/whisdom/WisdomScriptAJ.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+$font-default: Arial, Helvetica, sans-serif;
