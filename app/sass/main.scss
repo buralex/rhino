@@ -57,6 +57,9 @@ html, body {
     padding: 0;
     position: relative;
 }
+body.loaded {
+    visibility: hidden;
+}
 
 html {
     font-family: $font-default;
@@ -111,10 +114,7 @@ p {
 .nowrap{white-space: nowrap;}
 
 
-/* loader */
-.loaded .main-wrapper {
-    visibility:hidden;
-}
+
 .icon-load {
     background:url(../img/loader.gif) no-repeat left top;
     width:40px;height:40px;position:fixed;
@@ -124,8 +124,10 @@ p {
     margin-left:-20px;
     display:none;
 }
+
 .loaded .icon-load {
     display:block;
+    visibility: visible;
 }
 /*------------------- highlighting -------------------------*/
 
@@ -145,7 +147,8 @@ p {
 
 .counter {
      color: red;
-     visibility: hidden;
+     //visibility: hidden;
+    font-family: 'whisdom';
 
 }
 .counter.visible {
@@ -155,22 +158,6 @@ p {
 }
 p {
     color: blue;
-}
-
-/* -----------------------------------------------------------------------------
-
-  			                        FOOTER
-
------------------------------------------------------------------------------ */
-
-.main-footer {
-    text-align: left;
-    margin-top: 60px;
-    padding: 20px 0 30px 0;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background: #f1efeb;
 }
 
 /*-----------------------------------------------------------------------
@@ -197,7 +184,7 @@ p {
     display: none;
     height: 40px;
     width: 100%;
-    background-color: $pale-grey;
+    background-color: $warm-grey;
 }
 .navbar-toggle {
     float: left;
@@ -207,7 +194,7 @@ p {
     width: 54px;
     height: 40px;
     padding: 13px 0;
-    background-color: $dark-sky-blue;
+    background-color: $black;
 
     .icon-bar {
         display: block;
@@ -217,7 +204,7 @@ p {
         background-color: $white;
     }
     &.active {
-        background-color: lighten( $dark-sky-blue, 15% );
+        background-color: lighten( $black, 15% );
     }
 }
 
@@ -231,10 +218,10 @@ p {
         text-decoration: none;
         text-transform: uppercase;
         font-weight: bold;
-        color: $black-two;
+        color: $black;
         font-size: 1.6rem;
         &:hover {
-            color: $dark-sky-blue;
+            color: $black;
         }
     }
 }
@@ -288,7 +275,7 @@ p {
     border-radius: 3px;
     background-color: $white;
     box-shadow: 1.5px 2.6px 1px 0 rgba(108, 104, 104, 0.33);
-    border: solid 1px $silver;
+    border: solid 1px $pinkish-grey;
     padding: 15px 0 28px 0;
 
     & li a {
@@ -297,7 +284,7 @@ p {
         padding: 2px 66px 2px 32px;
         display: block;
         font-size: 1.5rem;
-        color: $brownish-grey;
+        color: $pinkish-grey;
         text-decoration: none;
         line-height: 2;
         &::before {
@@ -308,16 +295,16 @@ p {
             content: "";
             width: 6px;
             height: 6px;
-            background: $silver;
+            background: $pinkish-grey;
             border-radius: 50%;
-            border: 1px solid $camel;
+            border: 1px solid $pinkish-grey;
         }
         &:hover::before  {
-            background: $silver;
+            background: $pinkish-grey;
         }
     }
     & li:hover {
-        background-color: $silver;
+        background-color: $pinkish-grey;
     }
 }
 
@@ -329,7 +316,7 @@ p {
         padding: 0 10px 0 0 ;
         margin: 5px 10px 5px 17px;
         text-transform: uppercase;
-        color: $camel;
+        color: $pinkish-grey;
         font-size: 1.6rem;
     }
 }
@@ -372,10 +359,31 @@ p {
         background-size: contain;
     }
     &:hover {
-        background-color: darken($pale-grey, 20%);
+        background-color: darken($warm-grey, 20%);
     }
 }
 
+/* -----------------------------------------------------------------------------
+
+  			                        FOOTER
+
+----------------------------------------------------------------------------- */
+
+.main-footer {
+    text-align: left;
+    margin-top: 60px;
+    padding: 20px 0 30px 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #f1efeb;
+}
+
+.main-footer__copyright {
+    text-align: center;
+    margin: 10px auto;
+    font-size: 1.4rem;
+}
 
 
 /*------------------------------------ MEDIA ------------------*/

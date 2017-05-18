@@ -10,7 +10,7 @@ var gulp           = require('gulp'),
     imagemin       = require('gulp-imagemin'),
     cache          = require('gulp-cache'),
     autoprefixer   = require('gulp-autoprefixer'),
-    //ftp            = require('vinyl-ftp'),
+    ftp            = require('vinyl-ftp'),
     sourcemaps     = require('gulp-sourcemaps'),
     plumber        = require('gulp-plumber'),
     notify         = require("gulp-notify"),
@@ -26,14 +26,14 @@ var gulp           = require('gulp'),
 //         .pipe(uglify())
 //         .pipe(gulp.dest('app/js'));
 // });
-//
+
 gulp.task('js', function() {
     return gulp.src([
 
-        'app/js/main.js',
+        'app/js/main.js'
     ])
-        // .pipe(concat('scripts.min.js'))
-        // // .pipe(uglify()) // optional
+        //.pipe(concat('scripts.min.js'))
+        // .pipe(uglify()) // optional
         .pipe(gulp.dest('app/js'))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -43,7 +43,7 @@ gulp.task('browser-sync', function() {
         // server: {
         //     baseDir: 'app'
         // },
-        proxy: "http://rhino/",
+        proxy: "rhino/",
         online: true,
         notify: false
         // tunnel: true,
@@ -53,20 +53,20 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', function() {
     return gulp.src('app/sass/**/*.scss')
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(sass().on("error", notify.onError()))
         .pipe(rename({suffix: '.min', prefix : ''}))
         .pipe(autoprefixer(['last 15 versions']))
-        .pipe(gcmq())
+        //.pipe(gcmq())
         .pipe(cleanCSS()) // optional
-        .pipe(sourcemaps.write())
+        //.pipe(sourcemaps.write())
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('watch', ['sass', 'js', 'browser-sync'], function() {
     gulp.watch('app/sass/**/*.scss', ['sass']);
-    gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
+    gulp.watch(['libs/**/*.js', 'app/js/main.js'], ['js'], browserSync.reload);
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/*.php', browserSync.reload);
 });
