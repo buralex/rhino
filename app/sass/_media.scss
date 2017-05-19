@@ -26,12 +26,28 @@
     .main-footer__copyright {
         margin-top: 15px;
     }
+
+
 }
 
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px){
+    .main-nav__navbar {
+        text-align: center;
+        display: none;
 
+        ul li{
+            display: block;
+        }
+    }
+    .main-nav__navbar.opened {
+        display: inline-block;
+    }
+
+    .main-nav__toggle {
+        display: block;
+    }
 }
 
 
