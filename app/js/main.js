@@ -94,79 +94,27 @@ $(function(){
 
     document.addEventListener('DOMContentLoaded', function(){
 
-        // window.time = 0; //global declaration
-        // function autorefresh() {
-        //     var isChecked = document.getElementById("checkbox").checked;
-        //     if (isChecked == true) {
-        //         time = setInterval(function () {
-        //             moveRight();
-        //         }, 1000);
-        //     } else if (isChecked == false) {
-        //         clearInterval(time);
-        //     }
-        // }
-        // autorefresh();
-        // document.getElementById('checkbox').addEventListener('click', autorefresh);
-
-        var autoSlide = (function () {
-            var flag = true;
-
-            return function () {
-                if (flag) {
-                    console.log('dddd');
-                    var myVar = setInterval(function(){ console.log('dddd') }, 1000);
-                    flag = false;
-                } else {
-                    console.log('ccc');
-                    flag = true;
-                    clearInterval(myVar);
-                }
-                //return counter += 1
+        window.timeVar = 0; //global declaration
+        function autorefresh() {
+            var isChecked = document.getElementById("checkbox").checked;
+            if (isChecked == true) {
+                window.timeVar = setInterval(function () {
+                    moveRight();
+                }, 1000);
+            } else if (isChecked == false) {
+                clearInterval(timeVar);
             }
-        })();
-        document.getElementById('checkbox').addEventListener('click', autoSlide);
-
-
-
-        // var autoSlide = (function () {
-        //     var flag = true;
-        //
-        //     return function () {
-        //         if (flag) {
-        //             console.log('dddd');
-        //             //var myVar = setInterval(function(){ console.log('dddd') }, 1000);
-        //             flag = false;
-        //         } else {
-        //             console.log('ccc');
-        //             flag = true;
-        //             //clearInterval(myVar);
-        //         }
-        //         //return counter += 1
-        //     }
-        // })();
-        // autoSlide();
-        // autoSlide();
-        // autoSlide();
-
-
-
-
-        // var myVar = setInterval(function(){ console.log('dddd') }, 1000);
-        //
-        // function myTimer() {
-        //     console.log('ddd');
-        // }
-        //
-        // function myStopFunction() {
-        //     clearInterval(myVar);
-        // }
+        }
+        autorefresh();
+        document.getElementById('checkbox').addEventListener('click', autorefresh);
+        
 
         var slideCount = $('.main-header__slider ul li').length;
         var slideWidth = $('.main-header__slider ul li').width();
         var slideHeight = $('.main-header__slider ul li').height();
         var sliderUlWidth = slideCount * slideWidth;
 
-        $('.main-header__slider').css({ width: slideWidth, height: slideHeight });
+        $('.main-header__slider').css({ maxWidth: slideWidth, height: slideHeight });
 
         $('.main-header__slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
 
@@ -175,7 +123,7 @@ $(function(){
         function moveLeft() {
             $('.main-header__slider ul').animate({
                 left: + slideWidth
-            }, 200, function () {
+            }, 1000, function () {
                 $('.main-header__slider ul li:last-child').prependTo('.main-header__slider ul');
                 $('.main-header__slider ul').css('left', '');
             });
@@ -184,7 +132,7 @@ $(function(){
         function moveRight() {
             $('.main-header__slider ul').animate({
                 left: - slideWidth
-            }, 200, function () {
+            }, 1000, function () {
                 $('.main-header__slider ul li:first-child').appendTo('.main-header__slider ul');
                 $('.main-header__slider ul').css('left', '');
             });
@@ -210,10 +158,10 @@ $(function(){
   ----------------------------------------------------------------*/
  (function() {
 
-     var b = document.querySelector('.main-nav__toggle');
-     //var num = 0;
+     var btn = document.querySelector('.main-nav__toggle');
 
-     b.addEventListener("click", function() {
+
+     btn.addEventListener("click", function() {
 
          document.querySelector('.main-nav__navbar').classList.toggle('opened');
 
@@ -276,6 +224,7 @@ function stickyFooter(footerContainer, wrapCont) {
     
     function stick() {
         var footerHeight = document.querySelector(footerContainer).offsetHeight;
+        document.querySelector(footerContainer).style.cssText = "margin-top: -" + footerHeight + "px;";
         document.querySelector(wrapCont).style.cssText = "padding-bottom: " + footerHeight + "px;";
     }
 	
