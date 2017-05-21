@@ -15,6 +15,13 @@
     .main-nav {
         padding: 45px 150px 0 150px;
     }
+    .greet {
+        top: 185px;
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 20px;
+        }
+    }
 }
 
 
@@ -22,6 +29,18 @@
 @media only screen and (max-width : 992px){
     .main-nav {
         padding: 45px 80px 0 80px;
+    }
+    .greet {
+        top: 150px;
+        p {
+            font-size: 2rem;
+        }
+        h1 {
+            font-size: 4rem;
+        }
+    }
+    .btn {
+        padding: 15px 40px;
     }
 }
 
@@ -34,7 +53,7 @@
     .main-nav {
         padding: 5px 15px 5px 15px;
         text-align: center;
-        background-color: rgba(0,0,0,0.5);
+        background-color: rgba(0,0,0,0.8);
     }
     .main-nav__brand {
         margin: 10px 0;
@@ -43,7 +62,7 @@
         width: 100%;
         text-align: center;
         position: relative;
-        padding-top: 40px;
+        padding-top: 10px;
         display: none;
 
         ul li{
@@ -78,18 +97,70 @@
         display: block;
     }
 
+    .greet {
+        top: 100px;
+        p {
+            font-size: 1.2rem;
+        }
+        h1 {
+            margin-top: 7px;
+            margin-bottom: 7px;
+            font-size: 2rem;
+        }
+    }
+    .btn {
+        font-size: 1.2rem;
+        padding: 5px 20px;
+    }
+
 }
 
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px){
-
+    .greet {
+        top: 50px;
+     }
+    #pause {
+        transform: translateX(-735%) translateY(-150%);
+    }
+    #play {
+        transform: translateX(735%) translateY(-150%);
+    }
 }
 
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px){
 
+    .main-nav {
+        padding: 3px 15px 3px 15px;
+    }
+    .main-nav__toggle {
+        padding: 4px 7px;
+    }
+
+    .greet {
+        top: 10px;
+        p {
+            font-size: 1.2rem;
+        }
+        h1 {
+            margin-top: 7px;
+            margin-bottom: 7px;
+            font-size: 2rem;
+        }
+    }
+    .btn {
+        font-size: 1.2rem;
+        padding: 5px 20px;
+    }
+    #pause {
+        transform: translateX(-735%) translateY(-150%);
+    }
+    #play {
+        transform: translateX(735%) translateY(-150%);
+    }
 }
 
 
