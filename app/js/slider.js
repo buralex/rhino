@@ -2,7 +2,7 @@
  * Created by alex on 20.05.2017.
  */
 "use strict";
-
+document.addEventListener('load', function(){
 
 (function() {
 /*------------------------------------------------------------------------------
@@ -36,17 +36,22 @@ Function.prototype.debounce = function (milliseconds) {
 
  ------------------------------------------------------------------------------*/
 
-    document.addEventListener('DOMContentLoaded', function(){
+    //document.addEventListener('DOMContentLoaded', function(){
         function responsiveSlider() {
 
-            var slideInterval = setInterval(moveRight, 4000);
+            var slideInterval = setInterval(moveRightAuto, 4000);
             var playing = true;
             var pauseButton = document.getElementById('pause');
             var slideCount = document.querySelectorAll('#slider ul li').length;
-            var slideWidth = document.documentElement.clientWidth;
-            var slideHeight = document.querySelector('#slider ul li').offsetHeight;
-            var UlWidth = slideCount * slideWidth;
+            //var slideWidth = document.documentElement.clientWidth;
+
             var sliderBox = document.querySelector("#slider");
+            var slideWidth = document.querySelector('#slider').offsetWidth;
+            var slideHeight = document.querySelector('#slider img').offsetHeight;
+
+            //var slideHeight = document.querySelector('#slider ul li').offsetHeight;
+            var UlWidth = slideCount * slideWidth;
+
             var ul = document.querySelector("#slider ul");
             var liArray = document.querySelectorAll("#slider ul li");
 
@@ -76,33 +81,35 @@ Function.prototype.debounce = function (milliseconds) {
             sliderBox.style.cssText = "width: " + slideWidth + "px;" + "height:" + slideHeight + "px;";
 
             ul.style.cssText = "width: " + UlWidth + "px;" + "margin-left:" + (-slideWidth)
-                                + "px;" + "opacity: 1;";
+                               + "px;" + "opacity: 1;";
 
-            liArray.forEach(function (el) {
-                el.style.cssText = "width: " + slideWidth + "px;";
-            }, false);
+            for ( var i  = 0; i < liArray.length; i++ ) {
+                liArray[i].style.cssText = "width: " + slideWidth + "px;";
+            }
 
             window.addEventListener("resize", function(event) {
-                slideWidth = document.documentElement.clientWidth;
-                slideHeight = document.querySelector('#slider ul li').offsetHeight;
+                //slideWidth = document.documentElement.clientWidth;
+                sliderBox.style.width = "";
+                slideWidth = document.querySelector('#slider').offsetWidth;
+                slideHeight = document.querySelector('#slider img').offsetHeight;
                 UlWidth = slideCount * slideWidth;
 
                 sliderBox.style.cssText = "width: " + slideWidth + "px;" + "height:" + slideHeight + "px;";
 
                 ul.style.cssText = "width: " + UlWidth + "px;" + "margin-left:" + (-slideWidth)
-                    + "px;" + "opacity: 1;";
+                   + "px;" + "opacity: 1;";
 
-                liArray.forEach(function (el) {
-                    el.style.cssText = "width: " + slideWidth + "px;";
-                }, false);
+                for ( var i  = 0; i < liArray.length; i++ ) {
+                    liArray[i].style.cssText = "width: " + slideWidth + "px;";
+                }
 
-                //console.log(slideWidth, slideCount);
+                console.log(slideWidth, slideHeight, slideCount);
             }.debounce(10));
 
             function moveLeft() {
                 $('#slider ul').animate({
                     left: + slideWidth
-                }, 2000, function () {
+                }, 300, function () {
                     ul.insertBefore(document.querySelector("#slider ul li:last-child"), ul.childNodes[0]);
                     ul.style.left = "";
                 });
@@ -111,18 +118,26 @@ Function.prototype.debounce = function (milliseconds) {
             function moveRight() {
                 $('#slider ul').animate({
                     left: - slideWidth
+                }, 300, function () {
+                    ul.appendChild(document.querySelector("#slider ul li:first-child"));
+                    ul.style.left = "";
+                });
+            };
+
+            function moveRightAuto() {
+                $('#slider ul').animate({
+                    left: - slideWidth
                 }, 2000, function () {
                     ul.appendChild(document.querySelector("#slider ul li:first-child"));
                     ul.style.left = "";
                 });
             };
 
-
-            document.querySelector('a.control_prev').addEventListener( "click" , function() {
+            document.querySelector('.control_prev').addEventListener( "click" , function() {
                 pauseSlideshow();
                 moveLeft();
             });
-            document.querySelector('a.control_next').addEventListener( "click" , function() {
+            document.querySelector('.control_next').addEventListener( "click" , function() {
                 pauseSlideshow();
                 moveRight();
             });
@@ -130,9 +145,8 @@ Function.prototype.debounce = function (milliseconds) {
         }
         responsiveSlider();
 
-        //window.addEventListener("load", function(event) { responsiveSlider() }.debounce(10));
-        //window.addEventListener("resize", function(event) { responsiveSlider() }.debounce(10));
-    });
-
+    //});
 
 })();
+
+});

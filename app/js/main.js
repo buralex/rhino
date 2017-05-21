@@ -13,7 +13,7 @@
 
 
  // Get the modal
- var modal = document.getElementById('myModal');
+ var modalDiv = document.getElementById('myModal');
 
  // Get the button that opens the modal
  var btn = document.getElementById("myBtn");
@@ -23,12 +23,12 @@
 
  // When the user clicks the button, open the modal
  btn.onclick = function() {
-     modal.style.display = "block";
+     modalDiv.style.display = "block";
  }
 
  // When the user clicks on <span> (x), close the modal
  span.onclick = function() {
-     modal.style.display = "none";
+     modalDiv.style.display = "none";
  }
 
  // window.onclick = function(event) {
@@ -47,8 +47,8 @@
  //var bb = document.querySelector('body');
 
  window.addEventListener("click", function(event) {
-     if (event.target == modal) {
-         modal.style.display = "none";
+     if (event.target == modalDiv) {
+         modalDiv.style.display = "none";
      }
      //alert(event.target);
      //document.querySelector('.main-nav__navbar').classList.toggle('opened');
@@ -162,6 +162,8 @@ $(function(){
 
   ----------------------------------------------------------------*/
  (function() {
+     //var drp =document.querySelector('.dropdown');
+     //var sbm =document.querySelector('.sub-menu');
 
      $('.dropdown').on('click', function(event) {
          event.preventDefault();
@@ -171,7 +173,7 @@ $(function(){
      });
 
      window.addEventListener("click", function(event) {
-         if (!event.target.matches('.dropdown, .sub-menu')) {
+         if (event.target.className != 'dropdown' && event.target.className != 'sub-menu') {
              $('.sub-menu').each(function(){
                  $(this).slideUp(200);
              });
