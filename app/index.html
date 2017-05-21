@@ -10,7 +10,7 @@
 	<!--<link rel="icon" type="image/png" href="favicon.png">-->
 	<link rel="stylesheet" href="css/main.min.css">
 	<!--<link rel="stylesheet" href="css/slick.css">-->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
 
 	<script src="js/jquery.min.js"></script>
     <!--<script src="js/slick.js"></script>-->
@@ -24,42 +24,22 @@
     <!-- HEADER -->
     <header class="main-header ">
         <!-- SLIDER -->
-
-        <div id="slider" class = "o-blue">
-            <button type="button" class="control_next">>></button>
-            <button type="button" class="control_prev"><</button>
-            <ul>
-                <li><img src="img/h1.jpg" alt=" " width="" height=""></li>
-                <li><img src="img/h2.jpg" alt=" " width="" height=""></li>
-                <li><img src="img/h3.jpg" alt=" " width="" height=""></li>
-                <li><img src="img/h4.jpg" alt=" " width="" height=""></li>
+        <div class="main-slider" class = "o-blue">
+            <ul class="slides">
+                <li class="slide show"><img src="img/h1.jpg" alt=" " width="" height=""></li>
+                <li class="slide"><img src="img/h2.jpg" alt=" " width="" height=""></li>
+                <li class="slide"><img src="img/h3.jpg" alt=" " width="" height=""></li>
+                <li class="slide"><img src="img/h4.jpg" alt=" " width="" height=""></li>
             </ul>
+            <div class="controls">
+                <div>
+                    <button type="button" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    <button type="button" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                </div>
+            </div>
+            <button type="button" class="pause">&#10074;&#10074;</button>
         </div>
-
-        <button class="controls" id="pause">&#10074;&#10074;</button>
-
-<!--        <ul id="slides">-->
-<!--            <li class="slide ">Slide 1</li>-->
-<!--            <li class="slide">Slide 2</li>-->
-<!--            <li class="slide">Slide 3</li>-->
-<!--            <li class="slide">Slide 4</li>-->
-<!--            <li class="slide">Slide 5</li>-->
-<!--        </ul>-->
-<!--        <div class="main-header__slider">-->
-<!--            <div class="slider-item">-->
-<!--                <img src="/img/header-bg.jpg" alt=" " width="1200" height="600">-->
-<!--            </div>-->
-<!--            <div class="slider-item">-->
-<!--                <img src="/img/header-bg.jpg" alt=" " width="1200" height="600">-->
-<!--            </div>-->
-<!--            <div class="slider-item">-->
-<!--                <img src="/img/header-bg.jpg" alt=" " width="1200" height="600">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <i class="fa fa-pause" id="pause" aria-hidden="true"></i>-->
-<!--        <i class="fa fa-play-circle" id="play" aria-hidden="true"></i>-->
         <!-- EOF SLIDER -->
-
 
         <nav class="main-nav o-green">
             <div class="main-nav__header">
@@ -108,7 +88,7 @@
 
                 <div class="col-lg-4 o-blue">
                     <a href="#">
-                        <div class="mark mark-e-com"></div>
+                        <div class="mark mark-e-com"><i class="fa fa-shopping-basket" aria-hidden="true"></i></div>
                     </a>
                     <h3>E-Commerce</h3>
                     <p>Proin iaculis purus consequat sem cure
@@ -117,7 +97,7 @@
                 </div>
                 <div class="col-lg-4 o-blue">
                     <a href="#">
-                        <div class="mark mark-respons"></div>
+                        <div class="mark mark-respons"><i class="fa fa-mobile" aria-hidden="true"></i></div>
                     </a>
                     <h3>Responsive Web</h3>
                     <p>Proin iaculis purus consequat sem cure
@@ -126,7 +106,7 @@
                 </div>
                 <div class="col-lg-4 o-blue">
                     <a href="#">
-                        <div class="mark mark-perform"></div>
+                        <div class="mark mark-perform"><i class="fa fa-rocket" aria-hidden="true"></i></div>
                     </a>
                     <h3>Performance</h3>
                     <p>Proin iaculis purus consequat sem cure
@@ -143,7 +123,7 @@
                 <p>Proin iaculis purus consequat sem cure.</p>
 
                 <div class="col-lg-6">
-                    <img src="" alt="option">
+                    <img src="img/option1.jpg" alt="option">
                 </div>
                 <div class="col-lg-6">
                     <h3>LOREM IPSUM</h3>
@@ -173,9 +153,6 @@
                 <h3>CONTACT US</h3>
                 <p>Proin iaculis purus consequat sem cure.</p>
 
-                <div class="col-lg-6">
-                    <img src="" alt="option">
-                </div>
                 <div class="col-lg-6">
                     <h3>LOREM IPSUM</h3>
                     <p class="text-left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
@@ -247,42 +224,16 @@
 
 
 <div class="icon-load"></div>
-<!--<script src="js/slider.js"></script>-->
+<script src="js/slider.js"></script>
 <script src="js/main.js"></script>
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js" ></script>-->
 
 <script>
     $(document).ready(function(){
-//
-//        $('.main-header__slider').slick({
-//
-//            dots: true,
-//            infinite: true
-//        });
-        /*----------------- slider -------------------*/
-//        $('.main-header__slider').slick({
-//            slidesToShow: 1,
-//            slidesToScroll: 1,
-//            autoplay: true,
-//            pauseOnDotsHover: false,
-//            pauseOnHover: false,
-//            autoplaySpeed: 4000,
-//            dots: false,
-//            arrows: true,
-//            infinite: true
-//        });
-//        $('#pause').click(function() {
-//            $('.main-header__slider').slick('slickPause');
-//        });
-//        $('#play').click(function() {
-//            $('.main-header__slider').slick('slickPlay');
-//        });
-        /*----------------- eof slider -------------------*/
 
         stickyFooter('.main-footer', '.main-wrapper');
         //navbar('.navbar__collapse', '.navbar-toggle');
-
-
+        resposiveSlider('.main-slider', 2);
 
     });
 </script>
