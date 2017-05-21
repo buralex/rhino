@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c0fb73e-91e6-464d-8f3b-cbfed6fd94be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/e-com.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/fa-mobile-phone_2017-05-19/fa-mobile-phone@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/fa-mobile-phone_2017-05-19/fa-mobile-phone@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/fa-mobile-phone_2017-05-19/resp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/fa-rocket_2017-05-19.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/fa-rocket_2017-05-19/fa-rocket@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/fa-rocket_2017-05-19/fa-rocket@3x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/fa-rocket_2017-05-19/perf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/h1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/h2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/h3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/h4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/perf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/resp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/slider.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/index.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/main.min.css" afterPath="$PROJECT_DIR$/app/css/main.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/main.js" afterPath="$PROJECT_DIR$/app/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/_media.scss" afterPath="$PROJECT_DIR$/app/sass/_media.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/main.scss" afterPath="$PROJECT_DIR$/app/sass/main.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/slider.js" afterPath="$PROJECT_DIR$/app/js/slider.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,8 +52,8 @@
       <file leaf-file-name="slider.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/js/slider.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+            <state relative-caret-position="493">
+              <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -451,7 +431,7 @@
       <workItem from="1495046987728" duration="10008000" />
       <workItem from="1495102657435" duration="66047000" />
       <workItem from="1495174418815" duration="36875000" />
-      <workItem from="1495272519954" duration="39921000" />
+      <workItem from="1495272519954" duration="40923000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1495052501261</created>
@@ -509,11 +489,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495185939461</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="4.3--- slider...not responsive">
+      <created>1495324818801</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1495324818801</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167405000" />
+    <option name="totallyTimeSpent" value="168407000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -564,7 +551,8 @@
     <MESSAGE value="4.2 closure" />
     <MESSAGE value="4.3--- slider..." />
     <MESSAGE value="4.3--- slider...not responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.3--- slider...not responsive" />
+    <MESSAGE value="4.3--- slider...only full width" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.3--- slider...only full width" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -907,8 +895,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+        <state relative-caret-position="493">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
