@@ -1,0 +1,12 @@
+[16-Oct-2016 14:05:28 UTC] PHP Fatal error:  Class 'PHPUnit_Framework_TestCase' not found in /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/phpmailerTest.php on line 23
+[16-Oct-2016 14:05:28 UTC] PHP Stack trace:
+[16-Oct-2016 14:05:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/phpmailerTest.php:0
+[16-Oct-2016 14:05:43 UTC] PHP Fatal error:  Class 'PHPUnit_Framework_TestCase' not found in /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/phpmailerLangTest.php on line 23
+[16-Oct-2016 14:05:43 UTC] PHP Stack trace:
+[16-Oct-2016 14:05:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/phpmailerLangTest.php:0
+[16-Oct-2016 14:05:46 UTC] PHP Warning:  require_once(vendor/autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/bootstrap.php on line 2
+[16-Oct-2016 14:05:46 UTC] PHP Stack trace:
+[16-Oct-2016 14:05:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/bootstrap.php:0
+[16-Oct-2016 14:05:46 UTC] PHP Fatal error:  require_once(): Failed opening required 'vendor/autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/bootstrap.php on line 2
+[16-Oct-2016 14:05:46 UTC] PHP Stack trace:
+[16-Oct-2016 14:05:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/vendor/phpmailer/phpmailer/test/bootstrap.php:0
