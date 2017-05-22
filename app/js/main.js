@@ -2,54 +2,36 @@
 
 
  /*------------------------------------------------------------------------------
-
-                        MODALS
-
+                        MODAL INFO
   ------------------------------------------------------------------------------*/
  (function() {
- // Get the button that opens the modal
+
+ // Get the modals
+ var personInfo = document.querySelector('#personInfo');
+
+// Get the button that opens the modal
  var btn = document.getElementById("modalBtn");
 
  // When the user clicks the button, open the modal
  btn.onclick = function() {
-     document.querySelector('#personInfo').style.display = "block";
+     personInfo.style.display = "block";
  }
 
+ // Get the <span> element that closes the modal
+ var span = document.querySelector("#personInfo .close");
 
- // Get the modals
- var modalDivs = document.querySelectorAll('.modal');
+ // When the user clicks on <span> (x), close the modal
+ span.addEventListener("click", function(event) {
+     personInfo.style.display = "none";
+ });
 
- for ( var i = 0; i < modalDivs.length; i++ ) {
-     var mDiv = modalDivs[i];
-     clickListener(mDiv);
- }
+ window.addEventListener("click", function(event) {
+     if (event.target == personInfo) {
+         personInfo.style.display = "none";
+     }
+ });
 
- function clickListener(mDiv) {
-
-     mDiv.addEventListener( "click", function() {
-         console.log(mDiv.className);
-         // Get the <span> element that closes the modal
-         var span = document.querySelector("." + mDiv.className + " .close");
-
-         // When the user clicks on <span> (x), close the modal
-         span.addEventListener("click", function(event) {
-             mDiv.style.display = "none";
-         });
-
-         window.addEventListener("click", function(event) {
-             if (event.target == mDiv) {
-                 mDiv.style.display = "none";
-             }
-         });
-     });
- }
  })();
-
-
-
-
-
-
 
  /*------------------------------------------------------------------------------
 
@@ -80,7 +62,7 @@
          return "";
      }
 
-
+     var personInfo = document.querySelector('#personInfo');
 // checking 3 times
      function showModal() {
          var counter;
@@ -92,15 +74,15 @@
          }
 
          if (counter < 4 && counter != 0 ) {
-             document.querySelector('.count').appendChild(document.createTextNode(counter));
-             modal.style.display = 'block';
+             document.querySelector('.count').appendChild(document.createTextNode(" " + counter));
+             personInfo.style.cssText = 'display: block;';
              counter++;
              setCookie("user", counter, "30");
          }
          return counter;
      }
-//console.log(showModal()+'shm');
-     //document.cookie = "aa=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+     showModal();
+     //document.cookie = "user; expires=Thu, 18 Dec 2013 12:00:00 UTC";
  })();
 
 
@@ -115,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function(){
         document.querySelector('body').classList.add('ios');
     };
     document.querySelector('body').classList.remove('loaded');
-    //setTimeout(function(){document.querySelector('body').classList.remove('loaded'); }, 2000);
 });
 
 
@@ -146,60 +127,12 @@ $(function(){
 
   ----------------------------------------------------------------*/
  (function() {
-     //var drp =document.querySelector('.dropdown');
-     //var sbm =document.querySelector('.sub-menu');
-
-     $('.dropdown').on('click', function(event) {
-         event.preventDefault();
-         event.stopPropagation();
-         $(this).children('.sub-menu').slideToggle(200);
-         $(this).siblings().children('.sub-menu').hide();
-     });
-
-     window.addEventListener("click", function(event) {
-         if (event.target.className != 'dropdown' && event.target.className != 'sub-menu') {
-             $('.sub-menu').each(function(){
-                 $(this).slideUp(200);
-             });
-         }
-         //alert(event.target);
-         //document.querySelector('.main-nav__navbar').classList.toggle('opened');
-     });
-     // window.onclick = function(event) {
-     //     if (!event.target.matches('.dropdown, .sub-menu')) {
-     //         $('.sub-menu').each(function(){
-     //             $(this).slideUp(200);
-     //         });
-     //     }
-     // }
-
      var btn = document.querySelector('.main-nav__toggle');
 
      btn.addEventListener("click", function() {
          document.querySelector('.main-nav__navbar').classList.toggle('opened');
      });
 
-
-
-
-     //
-     // $( '.dropdown' ).hover(
-     //     function(){
-     //         $(this).children('.sub-menu').slideDown(200, function () {
-     //             if ($( this ).css( 'display') === 'none' ) {
-     //                 $(this).removeAttr('style');
-     //             }
-     //         });
-     //     },
-     //     function(){
-     //         $(this).children('.sub-menu').slideUp(200, function () {
-     //             if ($( this ).css( 'display') === 'none' ) {
-     //                 $(this).removeAttr('style');
-     //             }
-     //         });
-     //     }
-     // );
-     //
  })();
 
 
@@ -249,15 +182,6 @@ function stickyFooter(footerContainer, wrapCont) {
    window.addEventListener("resize", function(event) { stick() }.debounce(10));
    
 }
-/*---------------------------------------------------------------
-
-						attach
-						
-----------------------------------------------------------------*/
-
-(function() {
-  
-})();
 
 /*---------------------------------------------------------------
 
@@ -267,7 +191,7 @@ function stickyFooter(footerContainer, wrapCont) {
 
 (function() {
   
-  $(".send-contact").on('submit' , function(e) {
+  $("#contactForm").on('submit' , function(e) {
 
     $('.icon-load').show();
 
@@ -283,8 +207,6 @@ function stickyFooter(footerContainer, wrapCont) {
     success: function(data, textStatus, jqXHR) {
       $('.icon-load').hide();
         document.querySelector('#contactModal').style.display = "block";
-      //$('#contactModal').modal('show');
-        //alert('ssss');
     },
     error: function(jqXHR, textStatus, errorThrown) {
        
@@ -296,3 +218,86 @@ function stickyFooter(footerContainer, wrapCont) {
   
 })();
 
+ /*------------------------------------------------------------------------------
+                                    MODAL SEND
+  ------------------------------------------------------------------------------*/
+ (function() {
+
+     // Get the modals
+     var sendModal = document.querySelector('#contactModal');
+
+
+     // Get the <span> element that closes the modal
+     var span = document.querySelector("#contactModal .close");
+
+     // When the user clicks on <span> (x), close the modal
+     span.addEventListener("click", function(event) {
+         sendModal.style.display = "none";
+     });
+
+     window.addEventListener("click", function(event) {
+         if (event.target == sendModal) {
+             sendModal.style.display = "none";
+         }
+     });
+
+ })();
+
+
+ /*------------------------------------------------------------------------------
+                    SCROLL DOWN ANIM
+  ------------------------------------------------------------------------------*/
+
+ function addAnimClass(elemClass, animClass) {
+      function calcDistance(e) {
+          var elms = document.querySelectorAll(elemClass);  // array of li elements
+          for (var i = 0; i < elms.length; i++) {
+              var el = elms[i];
+              doSmth(el);
+          }
+
+          function doSmth(el) {
+              if (el.getBoundingClientRect().top < 600) {
+
+                  if (window.getComputedStyle(el).visibility == "hidden") {
+                      el.classList.add(animClass);
+                  }
+              }
+          }
+      }
+     window.addEventListener("scroll", function(event) { calcDistance() }.debounce(10));
+ }
+
+ (function () {
+     function calcDistance(e) {
+         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+             document.getElementById("toTopBtn").style.display = "block";
+         } else {
+             document.getElementById("toTopBtn").style.display = "none";
+         }
+     }
+     window.addEventListener("scroll", function(event) { calcDistance() }.debounce(10));
+ })();
+ /*------------------------------------------------------------------------------
+                               SMOOTH SCROLL
+  ------------------------------------------------------------------------------*/
+
+ // Add smooth scrolling to all links in navbar + footer link
+ $(".main-nav__navbar a, #toTopBtn").on('click', function(event) {
+     // Make sure this.hash has a value before overriding default behavior
+     if (this.hash !== "") {
+         // Prevent default anchor click behavior
+         event.preventDefault();
+
+         // Store hash
+         var hash = this.hash;
+
+         $('html, body').animate({
+             scrollTop: $(hash).offset().top
+         }, 600, function(){
+
+             // Add hash (#) to URL when done scrolling (default click behavior)
+             window.location.hash = hash;
+         });
+     } // End if
+ });

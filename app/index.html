@@ -7,29 +7,21 @@
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!--<link rel="icon" type="image/png" href="favicon.png">-->
 	<link rel="stylesheet" href="css/main.min.css">
-	<!--<link rel="stylesheet" href="css/slick.css">-->
-    <!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
-
-	<script src="js/jquery.min.js"></script>
-    <!--<script src="js/slick.js"></script>-->
-
 </head>
 
 <body class="loaded" >
 <!-- WRAPPER -->
-<div class="main-wrapper o-green">
+<div class="main-wrapper ">
 
     <!-- HEADER -->
-    <header class="main-header ">
+    <header id="home" class="main-header ">
         <!-- SLIDER -->
-        <div class="main-slider" class = "o-blue">
+        <div class="main-slider" class = "">
             <ul class="slides">
-                <li class="slide show"><img src="img/h1.jpg" alt=" " width="" height=""></li>
-                <li class="slide"><img src="img/h2.jpg" alt=" " width="" height=""></li>
-                <li class="slide"><img src="img/h3.jpg" alt=" " width="" height=""></li>
-                <li class="slide"><img src="img/h4.jpg" alt=" " width="" height=""></li>
+                <li class="slide show"><img src="img/of1.jpg" alt=" " width="" height=""></li>
+                <li class="slide"><img src="img/of2.jpg" alt=" " width="" height=""></li>
+                <li class="slide"><img src="img/of3.jpg" alt=" " width="" height=""></li>
             </ul>
             <div class="controls">
                 <div>
@@ -41,7 +33,7 @@
         </div>
         <!-- EOF SLIDER -->
 
-        <nav class="main-nav o-green">
+        <nav class="main-nav ">
             <div class="main-nav__header">
                 <i class="main-nav__toggle fa fa-bars" aria-hidden="true"></i>
                 <a class="main-nav__brand" href="#myPage">Golden</a>
@@ -50,15 +42,15 @@
                 <ul class="main-nav__content">
                     <li><a href="#home">HOME</a></li>
                     <li class="dropdown">
-                        <a href="#services">SERVICES</a>
+                        <a href="javascript:void(0)">SERVICES</a>
                         <ul class="sub-menu">
-                            <li><a href="#">Service-1</a></li>
+                            <li><a href="#services">Service-1</a></li>
                             <li class="dropdown">
-                                <a href="#">Service-2 &nbsp; &rsaquo;</a>
+                                <a href="javascript:void(0)">Service-2 &nbsp; &rsaquo;</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Subservice 1</a></li>
-                                    <li><a href="#">Subservice 2</a></li>
-                                    <li><a href="#">Subservice 3</a></li>
+                                    <li><a href="#services">Subservice 1</a></li>
+                                    <li><a href="#services">Subservice 2</a></li>
+                                    <li><a href="#services">Subservice 3</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Service-3</a></li>
@@ -70,7 +62,7 @@
             </div>
         </nav>
 
-        <div class="greet o-red">
+        <div class="greet">
             <p>Welcome To Our Team!</p>
             <h1>NICE TO MEET YOU</h1>
             <a href="#" class="btn tell-more">TELL ME MORE</a>
@@ -80,22 +72,22 @@
     <!-- EOF HEADER  -->
 
     <!-- CONTENT -->
-    <section class="services text-center">
+    <section id="services" class="services text-center">
         <div class="container-fluid">
             <div class="row">
                 <h2>SERVICES</h2>
                 <p>Proin iaculis purus consequat sem cure.</p>
 
-                <div class="col-lg-4 o-blue">
+                <div class="services__item slideanim col-md-6 col-lg-4 ">
                     <a href="#">
                         <div class="mark mark-e-com"><i class="fa fa-shopping-basket" aria-hidden="true"></i></div>
                     </a>
                     <h3>E-Commerce</h3>
                     <p>Proin iaculis purus consequat sem cure
-                        digni ssim. Donec very interesting porttitora entum suscipit
+                        digni ssim. Donec porttitora entum suscipit
                         aenean rhoncus posuere odio in tincidunt.</p>
                 </div>
-                <div class="col-lg-4 o-blue">
+                <div class="services__item slideanim col-md-6 col-lg-4 ">
                     <a href="#">
                         <div class="mark mark-respons"><i class="fa fa-mobile" aria-hidden="true"></i></div>
                     </a>
@@ -104,7 +96,7 @@
                         digni ssim. Donec porttitora entum suscipit
                         aenean rhoncus posuere odio in tincidunt.</p>
                 </div>
-                <div class="col-lg-4 o-blue">
+                <div class="services__item slideanim col-md-6 col-md-push-3 col-lg-4 col-lg-push-0 ">
                     <a href="#">
                         <div class="mark mark-perform"><i class="fa fa-rocket" aria-hidden="true"></i></div>
                     </a>
@@ -116,16 +108,19 @@
             </div>
         </div>
     </section>
-    <section class="options text-center">
+    <section id="options" class="options text-center">
         <div class="container-fluid">
             <div class="row">
-                <h3>OPTIONS</h3>
+                <h2>CHOOSE THE OPTIONS</h2>
                 <p>Proin iaculis purus consequat sem cure.</p>
 
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <img src="img/option1.jpg" alt="option">
                 </div>
-                <div class="col-lg-6">
+
+                <div class="col-lg-2"></div>
+
+                <div class="options__text col-lg-5">
                     <h3>LOREM IPSUM</h3>
                     <p class="text-left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
@@ -142,47 +137,31 @@
                 </div>
 
                 <a href="#" class="btn">READ MORE</a>
-<!--                <input id="readMore" class="btn btn-warning" type="submit" name="submit" value="READ MORE">-->
+
             </div>
         </div>
     </section>
 
-    <section class="contact text-center">
+    <section id="contact" class="contact text-center">
         <div class="container-fluid">
             <div class="row">
-                <h3>CONTACT US</h3>
+                <h2>CONTACT US</h2>
                 <p>Proin iaculis purus consequat sem cure.</p>
 
-                <form class="send-contact" action=" " method="post">
-                    <div class="col-lg-6">
-                        <div class="cont-fluid">
-                            <fieldset class="personal-info sm-12">
-                                <label>
-                                    <span class="warn">*&nbsp;</span>Your Name:
-                                    <input type="text" name="name" value="" required>
-                                </label>
+                <form id="contactForm" class="contact-form" action=" " method="post" onsubmit="fbtn.disabled = true; return true;">
+                    <div class="client-info">
+                        <div class="col-lg-6 ">
+                            <input type="text" name="name" placeholder="YOUR NAME*" required>
+                            <input type="email" name="email" placeholder="YOUR EMAIL*" required>
+                            <input type="text" name="subject" placeholder="SUBJECT*" required>
+                        </div>
 
-                                <label>
-                                    <span class="warn">*&nbsp;</span>Email Address:
-                                    <input type="email" name="email" value="" required>
-                                </label>
-
-                                <label>
-                                    <span class="warn">*&nbsp;</span>Subject:
-                                    <input type="text" name="subject" value="" required>
-                                </label>
-                            </fieldset>
+                        <div class="col-lg-6 ">
+                            <textarea class="contact__message" name="message" placeholder="YOUR MESSAGE*" required></textarea>
                         </div>
                     </div>
-
-                    <div class="col-lg-6">
-                        <label>
-                            <span class="warn">*&nbsp;</span>Your Message:
-                            <textarea name="message" required></textarea>
-                        </label>
-                    </div>
-                    <div class="col-lg-12">
-                        <input id="fbtn" class="btn" type="submit" name="submit"  value="Send Message" onsubmit="fbtn.disabled = true; return true;">
+                    <div class="col-lg-12 ">
+                        <input id="fbtn" class="btn" type="submit" name="submit"  value="SEND MESSAGE" onsubmit="fbtn.disabled = true; return true;">
                     </div>
                 </form>
             </div>
@@ -193,8 +172,7 @@
 
     <!-- EOF CONTENT -->
     <!-- MODALS -->
-    <!-- Trigger/Open The Modal -->
-    <button id="modalBtn">Open Modal</button>
+
 
     <!-- Personal-info -->
     <div id="personInfo" class="modal">
@@ -203,14 +181,141 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h2 class="count">Modal Header</h2>
+                <h2 class="count">Бурлаченко Александр Сергеевич</h2>
             </div>
             <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+
+                <h2>ОСНОВНАЯ ИНФОРМАЦИЯ:</h2>
+
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <p><strong>Возраст</strong></p>
+                        </td>
+                        <td>
+                            <p>&nbsp; 28</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>Семейное положение</strong></p>
+                        </td>
+                        <td>
+                            <p>&nbsp; не женат</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>Адрес</strong></p>
+                        </td>
+                        <td>
+                            <p>&nbsp; Украина, г. Николаев</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>Телефон</strong></p>
+                        </td>
+                        <td>
+                            <p>&nbsp; (+38) 066-922-09-05</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>E-mail</strong></p>
+                        </td>
+                        <td>
+                            <p>&nbsp;&nbsp;<a href="mailto:buralex89@gmail.com">buralex89@gmail.com</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>Skype</strong></p>
+                        </td>
+                        <td>
+                            <p>&nbsp;&nbsp;alexandr_bur</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>Site</strong></p>
+                        </td>
+                        <td>
+                            <p>&nbsp; buralex.tk</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2>ОБРАЗОВАНИЕ: </h2>
+
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <p><strong>Дата<br /> окончания</strong></p>
+                        </td>
+                        <td>
+                            <p><strong>Название <br /> учебного заведения</strong></p>
+                        </td>
+                        <td>
+                            <p><strong>Специализация</strong></p>
+                        </td>
+                        <td>
+                            <p><strong>Квалификация</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>2012</p>
+                        </td>
+                        <td>
+                            <p>Национальный университет кораблестроения имени адмирала Макарова</p>
+                        </td>
+                        <td>
+                            <p>Технология машиностроения</p>
+                        </td>
+                        <td>
+                            <p>Магистр по инженерной механике</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2>ПРОФЕССИОНАЛЬНЫЕ НАВЫКИ: </h2>
+
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <p>&nbsp;Знание web - технологий : &nbsp;</p>
+                        </td>
+                        <td>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;HTML5, SCSS, Javascript;</p>
+                            <p>&nbsp;JQuery, Bootstrap;</p>
+                            <p>&nbsp;PHP, MySQL, WordPress.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>&nbsp;Знание языков: </p>
+                        </td>
+                        <td>
+                            <p>&nbsp;</p>
+                            <p> английский &ndash; средний, </p>
+                            <p> русский, украинский - свободно </p>
+                            <p>&nbsp;</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
             </div>
+
             <div class="modal-footer">
-                <h3>Modal Footer</h3>
+                <h3></h3>
             </div>
         </div>
 
@@ -223,14 +328,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h2 class="count">Message sent!</h2>
+                <h2 class="">Message sent!</h2>
             </div>
             <div class="modal-body">
                 <p>We will call you back shortly.</p>
                 <p>Some other text...</p>
             </div>
             <div class="modal-footer">
-                <h3>Modal Footer</h3>
+                <h3></h3>
             </div>
         </div>
 
@@ -241,16 +346,20 @@
 <!-- EOF WRAPPER -->
 
 <!-- FOOTER -->
-<footer class="main-footer o-blue">
+<footer class="main-footer">
     <div class="container-fluid">
         <div class="row">
-            <div class="main-footer__social col-sm-6 col-sm-push-3 o-blue">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
+            <div class="main-footer__social col-sm-6 col-sm-push-3">
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
             </div>
-            <div class="main-footer__copyright col-sm-3 col-sm-pull-6 o-red">
+            <!-- Trigger/Open The Modal -->
+            <div class="col-sm-3 col-sm-push-3 text-center">
+                <button id="modalBtn" class="btn ">Show info</button>
+            </div>
+            <div class="main-footer__copyright col-sm-3 col-sm-pull-9">
                 &copy; Copyright 2017
             </div>
         </div>
@@ -258,12 +367,13 @@
 </footer>
 <!-- EOF FOOTER  -->
 
-
-
+<a href="#home" id="toTopBtn" title="Go to top">Top</a>
 <div class="icon-load"></div>
+
+<script src="js/jquery.min.js"></script>
 <script src="js/slider.js"></script>
 <script src="js/main.js"></script>
-<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.js" ></script>-->
+
 
 <script>
     $(document).ready(function(){
@@ -271,6 +381,8 @@
         stickyFooter('.main-footer', '.main-wrapper');
 
         resposiveSlider('.main-slider', 2);
+
+        addAnimClass('.slideanim', 'moveUp')
 
     });
 </script>
