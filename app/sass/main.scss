@@ -149,33 +149,27 @@ p {
 
 .greet {
     text-align: center;
-    pointer-events: none;
-    position: relative;
-    margin-top: 200px;
-
-    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    top: 34%;
+    z-index: 2;
 
     p {
-        pointer-events: none;
         font-size: 4rem;
         font-family: "Droid Serif", serif;
         font-style: italic;
         color: $white;
         margin-bottom: 5px;
-        //position: absolute;
-        //z-index: 0;
         text-align: center;
-
     }
     h1  {
         margin-top: 25px;
-        pointer-events: none;
         letter-spacing: -2px;
         font-size: 7.5rem;
         font-weight: bold;
         font-family: "Montserrat";
         color: $white;
-
         text-align: center;
 
     }
@@ -199,39 +193,31 @@ p {
         background-color: darken($sun-yellow, 20%);
     }
 }
-.tell-more {
-    pointer-events: auto;
 
-}
 /*-----------------------------------------------------------------------
                                    SLIDER
 ------------------------------------------------------------------------*/
 
 .main-slider {
-    position: absolute;
+    margin: 0 auto;
+    position: relative;
     width: 100%;
     z-index: 0;
 
     .controls {
         position: absolute;
-        width: 100%;
+        width: 84%;
+        left: 8%;
+        margin: 0 auto;
         top: 47%;
-        height: 20%;
-        //z-index: 10;
-        div {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        z-index: 100;
     }
 
     .next, .prev {
         cursor: pointer;
-        position: absolute;
-        top: 0;
         height: 100%;
-        z-index: 100;
         border: none;
+        box-shadow: none;
         outline: none;
         background: transparent;
         color: $sun-yellow;
@@ -242,6 +228,7 @@ p {
         transition: 0.2s;
     }
     .next {
+        float: right;
         right: 0;
     }
 
@@ -265,14 +252,14 @@ p {
     }
 
 }
-
+// it's an ul element
 .main-slider .slides{
+
     background-color: darken(gray, 30%);
     position: relative;
     width: 100%;
-    //height: 300px;
-    padding: 0;
     margin: 0;
+    padding-bottom: 50%;
     list-style-type: none;
 
     .slide {
@@ -289,6 +276,7 @@ p {
         display: block;
         width: 100%;
         height: auto;
+        z-index: 0;
     }
 
     .show{
@@ -305,13 +293,22 @@ p {
 /*-----------------------------------------------------------------------
                                    NAVBAR
 ------------------------------------------------------------------------*/
+
 .main-nav {
     text-align: right;
-    max-width: 970px;
+    //max-width: 970px;
+    width: 100%;
     margin: 0 auto;
-    padding: 45px 30px 0 30px;
-    position: relative;
+    padding: 45px 0 0 0;
+    position: absolute;
+    top: 0;
     z-index: 1;
+}
+
+.nav-box {
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 0 15px 0 15px;
 }
 
 .main-nav__brand {
@@ -325,6 +322,7 @@ p {
 
 .main-nav__navbar {
     display: inline-block;
+    float: right;
 }
 .main-nav__content {
     text-align: center;
@@ -336,8 +334,8 @@ p {
     & > li{
         display: inline-block;
         position:relative;
-        margin: 0 0 0 30px;
-        padding: 10px 10px 5px 10px;
+        margin: 0 0 0 35px;
+        padding: 10px 0 5px 10px;
 
         & > a {
             white-space: nowrap;
@@ -355,7 +353,7 @@ p {
         opacity: 0;
         background-color: $white;
         position:absolute;
-        padding: 6px 0 0 30px;
+        padding: 4px 0 0 30px;
         left: 0;
         top: 100%;
         text-align: left;
@@ -371,7 +369,7 @@ p {
         top:0;
         left:100%;
         margin:0;
-        padding: 0 0 0 5px;
+        padding: 0 0 0 3px;
         background-clip: content-box;
     }
 
@@ -440,7 +438,7 @@ p {
         color: $black;
     }
     h2+p {
-        margin: 0 0 80px 0;
+        margin: 0 0 75px 0;
         font: italic 1.6rem "Droid Serif", serif;
     }
     p {
@@ -450,8 +448,8 @@ p {
 }
 /*----------------------services--------------------*/
 .services {
-    margin: 205px 0 0 0;
-    padding: 0 0 130px 0;
+    margin: 63px 0 0 0;
+    padding: 0 0 110px 0;
 }
 .services__item {
     padding: 0 65px 0 65px;
@@ -495,6 +493,11 @@ p {
     padding: 65px 0 120px 0;
     background-color: $grey-7;
     box-shadow: inset  0  8px 8px -8px rgba(105, 104, 104, 0.7);
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 }
 .options__text {
     margin-bottom: 75px;
@@ -514,7 +517,6 @@ p {
     background-image: url("../img/map-bg.png");
     background-repeat: no-repeat;
     background-position: right bottom;
-    //background-size: contain;
     
     h2 {
         color: $white;
@@ -641,6 +643,8 @@ table, th, td {
     border-collapse: collapse;
     padding: 5px;
 }
+
+
 /* -----------------------------------------------------------------------------
 
   			                        FOOTER
@@ -649,11 +653,8 @@ table, th, td {
 
 .main-footer {
     text-align: left;
-    //margin-top: 60px;
     padding: 23px 0 22px 0;
     width: 100%;
-    //position: absolute;
-    //bottom: 0;
     background: $white;
 }
 

@@ -9,27 +9,12 @@
 
  ------------------------------------------------------------------------------*/
 
-    function resposiveSlider(sliderBox, ratio) {
-
-        var container = document.querySelector(sliderBox + " .slides");
-
-        var slideWidth = container.offsetWidth;
-        var slideHeight = slideWidth / ratio;
-        container.style.cssText = "height:" + slideHeight + "px;";
-        console.log(slideWidth, slideHeight);
+    function resposiveSlider(sliderBox) {
         var next = document.querySelector(sliderBox + ' .next');
         var previous = document.querySelector(sliderBox + ' .prev');
-
-
-        window.addEventListener("resize", function(event) {
-            slideWidth = container.offsetWidth;
-            slideHeight = slideWidth / ratio;
-            container.style.cssText = "height:" + slideHeight + "px;";
-        }.debounce(10));
-
         var slides = document.querySelectorAll(sliderBox + ' .slide');
         var currentSlide = 0;
-        var slideInterval = setInterval(nextSlide, 2000);
+        var slideInterval = setInterval(nextSlide, 3000);
 
         function nextSlide(){
             goToSlide(currentSlide+1);
@@ -57,7 +42,7 @@
         function playSlideshow(){
             pauseButton.innerHTML = '&#10074;&#10074;'; // pause character
             playing = true;
-            slideInterval = setInterval(nextSlide,2000);
+            slideInterval = setInterval(nextSlide, 3000);
         }
 
         pauseButton.onclick = function(){

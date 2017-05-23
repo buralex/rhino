@@ -12,17 +12,6 @@
         text-align: center;
         padding-left: 0;
     }
-    .main-nav {
-        padding: 45px 150px 0 150px;
-    }
-    .greet {
-        //top: 185px;
-        margin-top: 170px;
-        h1 {
-            font-size: 6rem;
-            margin-bottom: 20px;
-        }
-    }
 }
 
 /* Large Devices, Wide Screens */
@@ -31,12 +20,8 @@
         text-align: center;
         padding-left: 0;
     }
-    .main-nav {
-        padding: 45px 150px 0 150px;
-    }
+
     .greet {
-        //top: 185px;
-        margin-top: 150px;
         h1 {
             font-size: 6rem;
             margin-bottom: 20px;
@@ -47,11 +32,7 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px){
-    .main-nav {
-        padding: 45px 80px 0 80px;
-    }
     .greet {
-        margin: 95px auto;
         p {
             font-size: 2rem;
         }
@@ -60,7 +41,8 @@
         }
     }
     .btn {
-        padding: 15px 40px;
+        padding: 15px 20px;
+        font-size: 1.4rem;
     }
 }
 
@@ -72,17 +54,17 @@
     }
     .main-nav {
         position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 999;
-        padding: 0 15px 1px 15px;
-        text-align: center;
-        background-color: rgba(0,0,0,0.8);
+        padding: 0;
+        background-color: rgba(0,0,0,0.9);
     }
+
+    .main-nav.opened {
+        display: block;
+        height: 100%;
+    }
+
     .main-nav__brand {
-        margin: 10px 0;
-        position: absolute;
-        left: 15px;
+        margin: 5px 0;
     }
     .main-nav__navbar {
         width: 100%;
@@ -101,7 +83,6 @@
         text-align: center;
         & > li {
             display: block;
-            //position: relative;
             margin: 0 0 0 0;
         }
         .sub-menu,
@@ -117,82 +98,16 @@
     }
 
     .main-nav__navbar.opened {
-        display: inline-block;
+        display: block;
     }
 
     .main-nav__toggle {
         display: block;
-        position: absolute;
-        right: 15px;
     }
 
     .greet {
-        position: absolute;
-        top: 0;
-        width: 100%;
         p {
             margin: 0;
-            font-size: 1.2rem;
-        }
-        h1 {
-            //margin-top: 7px;
-            //margin-bottom: 7px;
-            font-size: 2rem;
-        }
-    }
-    .btn {
-        font-size: 1.2rem;
-        padding: 5px 20px;
-    }
-
-    .main-slider .pause {
-        //transform: translateX(-735%) translateY(-150%);
-        font-size: 1rem;
-    }
-    #toTopBtn {
-        font-size: 1rem;
-        padding: 5px;
-    }
-    .services {
-        margin: 395px 0 0 0;
-    }
-}
-
-@media only screen and (max-width : 600px){
-    .services {
-        margin: 255px 0 0 0;
-    }
-}
-
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px){
-    .greet {
-        margin-top: 25px;
-
-     }
-    .main-slider .pause {
-        font-size: 1rem;
-    }
-    .services {
-        margin: 295px 0 0 0;
-    }
-}
-
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width : 320px){
-
-    .main-nav {
-        padding: 3px 15px 3px 15px;
-    }
-    .main-nav__toggle {
-        padding: 4px 7px;
-    }
-
-    .greet {
-        //top: 10px;
-        p {
             font-size: 1.2rem;
         }
         h1 {
@@ -202,15 +117,46 @@
         }
     }
     .btn {
-        font-size: 1.2rem;
-        padding: 5px 20px;
+        padding: 5px 10px;
+        font-size: 1.4rem;
     }
+
+    #toTopBtn {
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+}
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px){
+    .greet {
+        margin-top: -10px;
+
+     }
     .main-slider .pause {
-        //transform: translateX(-735%) translateY(-150%);
         font-size: 1rem;
     }
-    .services {
-        margin: 170px 0 0 0;
+
+    table p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px){
+
+    .main-nav {
+        //padding: 3px 15px 3px 15px;
+    }
+    .main-nav__toggle {
+        padding: 4px 7px;
+    }
+
+    .btn {
+        padding: 5px 20px;
     }
 }
 
