@@ -499,14 +499,46 @@ p {
         height: auto;
     }
 }
-.options__text {
-    margin-bottom: 75px;
-    p {
-        text-align: justify;
+.options__form {
+    [class^="col-"] {
+        overflow: hidden;
+    }
+    select {
+        width: 100%;
+        overflow-y: auto;
+        background: white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        //-moz-appearance: none;
+        //-webkit-appearance: none;
+        //appearance: none;
+        //padding:10px;
+        //margin:0 -60px 0 0;
     }
 
-    h3 {
-        margin: 10px 0 20px 0;
+    //select::-ms-expand {  /* для IE */
+    //    display: none;
+    //}
+    option {
+        font-size:2rem;
+        background: gray;
+        height: 30px;
+        border: 1px solid blue;
+        margin: 15px;
+        &:after {
+            content: '+';
+            float: right;
+            cursor: pointer;
+        }
+    }
+    option.chosen {
+        &:after {
+            content: '-';
+        }
+    }
+    span {
+        cursor: pointer;
     }
 }
 

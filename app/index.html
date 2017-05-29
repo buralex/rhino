@@ -3,11 +3,12 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Template</title>
+	<title>Golden</title>
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="css/main.min.css">
+    <script src="js/options.js"></script>
 </head>
 
 <body class="loaded" >
@@ -74,7 +75,7 @@
     <!-- EOF HEADER  -->
 
     <!-- CONTENT -->
-    <section id="services" class="services text-center">
+    <section class="services text-center">
         <div class="container-fluid">
             <div class="row">
                 <h2>SERVICES</h2>
@@ -110,34 +111,50 @@
             </div>
         </div>
     </section>
-    <section id="options" class="options text-center">
+
+    <section class="options text-center">
         <div class="container-fluid">
             <div class="row">
-                <h2>CHOOSE THE OPTIONS</h2>
-                <p>Proin iaculis purus consequat sem cure.</p>
+                <div class="col-sm-12 o-red">
+                    <form id="optionsForm" class="options__form" action="">
+                        <div class="col-sm-6 o-green">
+                            <select name="offered" multiple size="10" onClick="moveSelectedOptions(this.form['offered'],this.form['chosen'],true)">
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                                <option value="4">Option 4</option>
+                                <option value="5">Option 5</option>
+                                <option value="6">Option 6</option>
+                                <option value="7">Option 7</option>
+                                <option value="8">Option 8</option>
+                                <option value="9">Option 9</option>
+                                <option value="10">Option 10</option>
+                            </select>
+                        </div>
 
-                <div class="col-sm-6 col-md-5">
-                    <img src="img/option1.jpg" alt="option" width="470" height="312">
-                </div>
+                        <div class="col-sm-6 o-green">
+                            <select name="chosen" multiple size="10" onClick="moveSelectedOptions(this.form['chosen'],this.form['offered'],true)">
+                                <!--<option value="Option">Matt</option>-->
+                                <!--<option value="Option">Bill</option>-->
+                                <!--<option value="Option">Bob</option>-->
+                                <!--<option value="Option">Jane</option>-->
+                                <!--<option value="Option">Mary</option>-->
+                                <!--<option value="Option">Matt</option>-->
+                                <!--<option value="Option">Bill</option>-->
+                                <!--<option value="Option">Bob</option>-->
+                                <!--<option value="Option">Jane</option>-->
+                                <!--<option value="Option">Mary</option>-->
+                            </select>
+                        </div>
 
-                <div class="col-md-2">
 
-                </div>
+                        <input type="button" name="right" value="&gt;&gt;" onclick="moveSelectedOptions(this.form['offered'],this.form['chosen'],true)"><br><br>
+                        <input type="button" name="right" value="All &gt;&gt;" onclick="moveAllOptions(this.form['offered'],this.form['chosen'],true)"><br><br>
+                        <input type="button" name="left" value="&lt;&lt;" onclick="moveSelectedOptions(this.form['chosen'],this.form['offered'],true)"><br><br>
+                        <input type="button" name="left" value="All &lt;&lt;" onclick="moveAllOptions(this.form['chosen'],this.form['offered'],true)">
 
-                <div class="options__text col-sm-6 col-md-5">
-                    <h3>LOREM IPSUM</h3>
-                    <p class="text-left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                        mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-                        quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                        rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-                        Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
-                        tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
-                        dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
-                        Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper
-                        ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus,
-                        sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel,
-                        luctus pulvinar, hendrerit id, lorem. </p>
+
+                    </form>
                 </div>
 
                 <a href="#" class="btn">READ MORE</a>
@@ -146,7 +163,7 @@
         </div>
     </section>
 
-    <section id="contact" class="contact text-center">
+    <section class="contact text-center">
         <div class="container-fluid">
             <div class="row">
                 <h2>CONTACT US</h2>
@@ -375,6 +392,7 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/slider.js"></script>
+
 <script src="js/main.js"></script>
 
 

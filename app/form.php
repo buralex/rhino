@@ -9,6 +9,8 @@ function test_input($data) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["message"])) {
 
+	$option = test_input($_POST["chosenOption"]);
+
 	$name = test_input($_POST["name"]);
 
 	$email = test_input($_POST["email"]);
@@ -17,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"]) && isset($_POS
 
 	$subject = test_input($_POST["subject"]);
 
-	$messageText = "<b>Name:</b> ".$name." <br><b>Email:</b> ".$email." <p>".$message."</p>";
+	$messageText = "<b>Name:</b> ".$name." <br><b>Email:</b> ".$email." <p>".$message."</p>"." <p>".$option."</p>";
 
 
 	date_default_timezone_set('Etc/UTC');

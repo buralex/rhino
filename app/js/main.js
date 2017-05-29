@@ -62,53 +62,53 @@ Function.prototype.debounce = function (milliseconds) {
  COUNTER (COOKIE)
 
  ------------------------------------------------------------------------------*/
-(function () {
-
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';'); //cookie array
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-
-    var personInfo = document.querySelector('#personInfo');
-// checking 3 times
-    function showModal() {
-        var counter;
-        if (getCookie("user") != "") {
-            counter = Number(getCookie("user"));
-        } else {
-            setCookie("user", 1, "30");
-            counter = Number(getCookie("user"));
-        }
-
-        if (counter < 4 && counter != 0) {
-            document.querySelector('.count').appendChild(document.createTextNode(" " + counter));
-            personInfo.style.cssText = 'display: block;';
-            counter++;
-            setCookie("user", counter, "30");
-        }
-        return counter;
-    }
-
-    showModal();
-    //document.cookie = "user; expires=Thu, 18 Dec 2013 12:00:00 UTC";
-})();
+// (function () {
+//
+//     function setCookie(cname, cvalue, exdays) {
+//         var d = new Date();
+//         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+//         var expires = "expires=" + d.toUTCString();
+//         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+//     }
+//
+//     function getCookie(cname) {
+//         var name = cname + "=";
+//         var ca = document.cookie.split(';'); //cookie array
+//         for (var i = 0; i < ca.length; i++) {
+//             var c = ca[i];
+//             while (c.charAt(0) == ' ') {
+//                 c = c.substring(1);
+//             }
+//             if (c.indexOf(name) == 0) {
+//                 return c.substring(name.length, c.length);
+//             }
+//         }
+//         return "";
+//     }
+//
+//     var personInfo = document.querySelector('#personInfo');
+// // checking 3 times
+//     function showModal() {
+//         var counter;
+//         if (getCookie("user") != "") {
+//             counter = Number(getCookie("user"));
+//         } else {
+//             setCookie("user", 1, "30");
+//             counter = Number(getCookie("user"));
+//         }
+//
+//         if (counter < 4 && counter != 0) {
+//             document.querySelector('.count').appendChild(document.createTextNode(" " + counter));
+//             personInfo.style.cssText = 'display: block;';
+//             counter++;
+//             setCookie("user", counter, "30");
+//         }
+//         return counter;
+//     }
+//
+//     showModal();
+//     //document.cookie = "user; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+// })();
 
 
 /*---------------------------------------------------------------
@@ -251,6 +251,7 @@ function stickyFooter(footerContainer, wrapCont) {
         $('.icon-load').show();
 
         var formData = new FormData(this);
+        formData.append('chosenOption', 'this is option')
         $.ajax({
             url: "form.php",
             type: 'POST',
