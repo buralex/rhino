@@ -287,9 +287,7 @@ function stickyFooter(footerContainer, wrapCont) {
     var span = document.querySelector("#contactModal .close");
 
     // When the user clicks on <span> (x), close the modal
-    span.addEventListener("click", function (event) {
-        sendModal.style.display = "none";
-    });
+
 
     window.addEventListener("click", function (event) {
         if (event.target == sendModal) {

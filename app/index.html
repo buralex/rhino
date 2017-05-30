@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="css/main.min.css">
-    <script src="js/options.js"></script>
+
 </head>
 
 <body class="loaded" >
@@ -118,33 +118,48 @@
                 <div class="col-sm-12 o-red">
                     <form id="optionsForm" class="options__form" action="">
                         <div class="col-sm-6 o-green">
-                            <select name="offered" multiple size="10" onClick="moveSelectedOptions(this.form['offered'],this.form['chosen'],true)">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="4">Option 4</option>
-                                <option value="5">Option 5</option>
-                                <option value="6">Option 6</option>
-                                <option value="7">Option 7</option>
-                                <option value="8">Option 8</option>
-                                <option value="9">Option 9</option>
-                                <option value="10">Option 10</option>
-                            </select>
+                            <!--<select name="offered" multiple size="10" onClick="moveSelectedOptions(this.form['offered'],this.form['chosen'],true)">-->
+                                <!--<option value="1">Option 1</option>-->
+                                <!--<option value="2">Option 2</option>-->
+                                <!--<option value="3">Option 3</option>-->
+                                <!--<option value="4">Option 4</option>-->
+                                <!--<option value="5">Option 5</option>-->
+                                <!--<option value="6">Option 6</option>-->
+                                <!--<option value="7">Option 7</option>-->
+                                <!--<option value="8">Option 8</option>-->
+                                <!--<option value="9">Option 9</option>-->
+                                <!--<option value="10">Option 10</option>-->
+                            <!--</select>-->
+                            <ul class="offered">
+                                <li data-num="1">Option 1</li>
+                                <li data-num="2">Option 2</li>
+                                <li data-num="3">Option 3</li>
+                                <li data-num="4">Option 4</li>
+                                <li data-num="5">Option 5</li>
+                                <li data-num="6">Option 6</li>
+                                <li data-num="7">Option 7</li>
+                                <li data-num="8">Option 8</li>
+                                <li data-num="9">Option 9</li>
+                                <li data-num="10">Option 10</li>
+                            </ul>
                         </div>
 
                         <div class="col-sm-6 o-green">
-                            <select name="chosen" multiple size="10" onClick="moveSelectedOptions(this.form['chosen'],this.form['offered'],true)">
-                                <!--<option value="Option">Matt</option>-->
-                                <!--<option value="Option">Bill</option>-->
-                                <!--<option value="Option">Bob</option>-->
-                                <!--<option value="Option">Jane</option>-->
-                                <!--<option value="Option">Mary</option>-->
-                                <!--<option value="Option">Matt</option>-->
-                                <!--<option value="Option">Bill</option>-->
-                                <!--<option value="Option">Bob</option>-->
-                                <!--<option value="Option">Jane</option>-->
-                                <!--<option value="Option">Mary</option>-->
-                            </select>
+                            <!--<select name="chosen" multiple size="10" onClick="moveSelectedOptions(this.form['chosen'],this.form['offered'],true)">-->
+                                <!--&lt;!&ndash;<option value="Option">Matt</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Bill</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Bob</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Jane</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Mary</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Matt</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Bill</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Bob</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Jane</option>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<option value="Option">Mary</option>&ndash;&gt;-->
+                            <!--</select>-->
+                            <ul class="chosen">
+                                <!--<li data-num="3">Option 3</li>-->
+                            </ul>
                         </div>
 
 
@@ -392,7 +407,7 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/slider.js"></script>
-
+<script src="js/options.js"></script>
 <script src="js/main.js"></script>
 
 
