@@ -38,6 +38,21 @@
         </div>
         <!-- EOF SLIDER -->
 
+
+        <div id="carousel" class = "o-blue">
+            <button type="button" class="control_next">>></button>
+            <button type="button" class="control_prev"><</button>
+            <ul class="carousel__slides">
+                <li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>
+                <li><img src="img/of2.jpg" alt=" " width="1400" height="700"></li>
+                <li><img src="img/of3.jpg" alt=" " width="1400" height="700"></li>
+                <li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>
+            </ul>
+        </div>
+
+        <button class="controls" id="pause">&#10074;&#10074;</button>
+
+
         <nav class="main-nav ">
             <div class="nav-box">
                 <div class="main-nav__header">
@@ -118,18 +133,6 @@
                 <div class="col-sm-12 o-red">
                     <form id="optionsForm" class="options__form" action="">
                         <div class="col-sm-6 o-green">
-                            <!--<select name="offered" multiple size="10" onClick="moveSelectedOptions(this.form['offered'],this.form['chosen'],true)">-->
-                                <!--<option value="1">Option 1</option>-->
-                                <!--<option value="2">Option 2</option>-->
-                                <!--<option value="3">Option 3</option>-->
-                                <!--<option value="4">Option 4</option>-->
-                                <!--<option value="5">Option 5</option>-->
-                                <!--<option value="6">Option 6</option>-->
-                                <!--<option value="7">Option 7</option>-->
-                                <!--<option value="8">Option 8</option>-->
-                                <!--<option value="9">Option 9</option>-->
-                                <!--<option value="10">Option 10</option>-->
-                            <!--</select>-->
                             <ul class="offered">
                                 <li data-num="1">Option 1 <span></span></li>
                                 <li data-num="2">Option 2 <span></span></li>
@@ -145,20 +148,8 @@
                         </div>
 
                         <div class="col-sm-6 o-green">
-                            <!--<select name="chosen" multiple size="10" onClick="moveSelectedOptions(this.form['chosen'],this.form['offered'],true)">-->
-                                <!--&lt;!&ndash;<option value="Option">Matt</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Bill</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Bob</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Jane</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Mary</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Matt</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Bill</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Bob</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Jane</option>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<option value="Option">Mary</option>&ndash;&gt;-->
-                            <!--</select>-->
                             <ul class="chosen">
-                                <!--<li data-num="3">Option 3</li>-->
+
                             </ul>
                         </div>
 
@@ -403,6 +394,7 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/slider.js"></script>
+<script src="js/carousel.js"></script>
 <script src="js/options.js"></script>
 <script src="js/main.js"></script>
 
