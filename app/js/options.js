@@ -92,40 +92,84 @@ function sortSelect(ul) {
     // for (var i=0; i<o.length; i++) {
     //     obj.options[i] = new Option(o[i].text, o[i].value, o[i].defaultSelected, o[i].selected);
     // }
-    {
+
         //console.log(SelList);
-        console.log(ul.className);
-        console.log(ul);
+        //console.log(ul.className);
+        //console.log(ul);
         //console.log(SelList);
+
+
+    var switching, elms, shouldSwitch;
+    //list = document.getElementById("id01");
+    switching = true;
+
+    /*Make a loop that will continue until
+     no switching has been done:*/
+    while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        //b = list.getElementsByTagName("LI");
+
+        elms = document.querySelectorAll('.' + ul.className + ' li');
+
+        //Loop through all list-items:
+        for (var i = 0; i < (elms.length - 1); i++) {
+
+            //start by saying there should be no switching:
+            shouldSwitch = false;
+
+            /*check if the next item should
+             switch place with the current item:*/
+            if (+elms[i].getAttribute('data-num') > +elms[i + 1].getAttribute('data-num')) {
+                /*if next item is alphabetically
+                 lower than current item, mark as a switch
+                 and break the loop:*/
+                shouldSwitch= true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            /*If a switch has been marked, make the switch
+             and mark the switch as done:*/
+            elms[i].parentNode.insertBefore(elms[i + 1], elms[i]);
+            switching = true;
+        }
+    }
+
+
+     /*
         var elms = document.querySelectorAll('.' + ul.className + ' li');
 
         //var dataNum = document.querySelector('.' + ul.className + ' li').getAttribute('data-num');
 
-        var ID='';
-        var Text='';
+        var dataNum ='';
+        var Text ='';
 
         for (var x = 0 ; x < elms.length; x++)
         {
-
-
             for (var y = x + 1; y < elms.length; y++)
             {
                 //var dataNum = elms[x].getAttribute('data-num');
                 //console.log(elms[x].getAttribute('data-num'));
+                console.log(elms[x], elms[y]);
                 if (+(elms[x].getAttribute('data-num')) > +(elms[y].getAttribute('data-num')))
                 {
                     // Swap rows
-                    ID= +(elms[x].getAttribute('data-num'));
-                    Text= elms[x].textContent;
-                    console.log(Text);
-                    elms[x].setAttribute('data-num', +(elms[y].getAttribute('data-num')));
-                    elms[x].textContent = elms[y].textContent;
-                    elms[y].setAttribute('data-num', ID);
-                    elms[y].textContent = Text;
+                    console.log('f');
+
+
+                    //dataNum = +(elms[x].getAttribute('data-num'));
+                    elms[x].parentNode.insertBefore(elms[x+1], elms[x]);
+                    // Text= elms[x].textContent;
+                    // console.log(Text);
+                    // elms[x].setAttribute('data-num', elms[y].getAttribute('data-num'));
+                    // elms[x].textContent = elms[y].textContent;
+                    //elms[y].setAttribute('data-num', dataNum);
+                    // elms[y].textContent = Text;
                 }
             }
         }
-    }
+    */
 }
 
 // -------------------------------------------------------------------
@@ -229,18 +273,18 @@ function moveSelectedOptions(from,to) {
 // moveAllOptions(select_object,select_object[,autosort(true/false)])
 //  Move all options from one select box to another.
 // -------------------------------------------------------------------
-function moveAllOptions(from,to) {
-    selectAllOptions(from);
-    if (arguments.length==2) {
-        moveSelectedOptions(from,to);
-    }
-    else if (arguments.length==3) {
-        moveSelectedOptions(from,to,arguments[2]);
-    }
-    else if (arguments.length==4) {
-        moveSelectedOptions(from,to,arguments[2],arguments[3]);
-    }
-}
+// function moveAllOptions(from,to) {
+//     selectAllOptions(from);
+//     if (arguments.length==2) {
+//         moveSelectedOptions(from,to);
+//     }
+//     else if (arguments.length==3) {
+//         moveSelectedOptions(from,to,arguments[2]);
+//     }
+//     else if (arguments.length==4) {
+//         moveSelectedOptions(from,to,arguments[2],arguments[3]);
+//     }
+// }
 
 // -------------------------------------------------------------------
 // copyAllOptions(select_object,select_object[,autosort(true/false)])
@@ -440,32 +484,38 @@ var Observable = function() {
     this.addObserver = function(observer) {
         observers.push(observer);
     }
-}
+};
 
 var Observer = function(behaviour) {
     //this._self = this;
     this.notify = function(msg) {
         behaviour(msg);
     }
-}
+};
 
 var observable = new Observable();
+
 
 var chosenListObs = new Observer(function(msg){
     //console.log(msg.parentNode.className);
     //console.log();
 
 
-    if (msg.parentNode.className === 'chosen') {
+    if (msg.parentNode.className === 'chosen') {  // if we press on chosen list
 
+        msg.children[0].classList.remove('chosen');
         offeredList.appendChild(msg);
+
         sortSelect(offeredList);
         //msg.parentNode.removeChild(msg);
 
     } else {
         //console.log(msg.parentNode.className);
         //console.log(chosenList);
-
+        //var mark = document.querySelector(msg.tagName + ' span');
+        console.log(msg.children[0]);
+        //mark.classList.add('chosen');
+        msg.children[0].classList.add('chosen');
         chosenList.appendChild(msg);
         sortSelect(chosenList);
         //msg.parentNode.removeChild(msg);
@@ -484,3 +534,38 @@ function handler(el) {
         observable.sendMessage(this);
     });
 }
+var addAll = document.querySelector('#addAll');
+var removeAll = document.querySelector('#removeAll');
+
+var moveAllOptions = function(from, to) {
+
+    var elms = document.querySelectorAll('.' + from.className + ' li');
+
+    for (var i = 0; i < elms.length; i++) {
+
+        if (from.className === 'chosen') {
+            elms[i].children[0].classList.remove('chosen');
+        } else {
+            elms[i].children[0].classList.add('chosen');
+        }
+
+        to.appendChild(elms[i]);
+    }
+}
+
+addAll.addEventListener("click", function (event) {
+    console.log(this.parentNode);
+
+    moveAllOptions(offeredList, chosenList);
+    sortSelect(chosenList);
+    //console.log(this.parentNode);
+    //observable.sendMessage(this);
+});
+removeAll.addEventListener("click", function (event) {
+    console.log(this.parentNode);
+
+    moveAllOptions(chosenList, offeredList);
+    sortSelect(offeredList);
+    //console.log(this.parentNode);
+    //observable.sendMessage(this);
+});

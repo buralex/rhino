@@ -510,7 +510,24 @@ p {
     li {
         font-size: 2rem;
         margin: 15px;
-        cursor: pointer;
+        pointer-events: none;
+
+        span {
+            float: right;
+            cursor: pointer;
+            pointer-events: auto;
+            &:after {
+                content: '+';
+            }
+        }
+        span.chosen {
+            float: right;
+            cursor: pointer;
+            pointer-events: auto;
+            &:after {
+                content: '-';
+            }
+        }
     }
     //[class^="col-"] {
     //    overflow: hidden;
