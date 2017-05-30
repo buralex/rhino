@@ -196,88 +196,78 @@ p {
 /*-----------------------------------------------------------------------
                                    CAROUSEL
 ------------------------------------------------------------------------*/
-//#carousel {
-//    position: relative;
-//    max-width: 1400px;
-//    height: auto;
-//    max-height: 700px;
-//    overflow: hidden;
-//    margin: 0 auto;
-//    border-radius: 4px;
-//    img {
-//        height: auto;
-//        width: 100%;
-//        display: block;
-//    }
-//}
-//
-#carousel ul {
-
-    //opacity: 0;
+.carousel {
     position: relative;
-    margin: 0;
-    //transition: 2s;
-    padding: 0;
-    //height: 200px;
-    list-style: none;
+    margin: 0 auto;
+
+
+
 }
-//
-#carousel ul li {
-//    position: relative;
-//    display: block;
-//    //display: inline-block;
-    float: left;
-//    margin: 0;
-//    padding: 0;
-//    height: auto;
-//    //width: 1200px;
-//    //height: 300px;
-//    background: #ccc;
-//    text-align: center;
-//    line-height: 300px;
-    img {
-        display: block;
+.carousel__controls {
+
+        position: absolute;
         width: 100%;
-        height: auto;
+        left: 0;
+        margin: 0 auto;
+        top: 65%;
+        z-index: 100;
+
+
+    .next, .prev {
+        cursor: pointer;
+        height: 100%;
+        border: none;
+        box-shadow: none;
+        outline: none;
+        background: transparent;
+        color: $sun-yellow;
+        font-size: 4.8rem;
+        &:hover {
+            color: darken($sun-yellow, 30%);
+        }
+        transition: 0.2s;
+    }
+    .prev {
+        float: left;
+    }
+    .next {
+        float: right;
+        right: 0;
     }
 }
 
-.control_prev, .control_next {
+.carousel__pause {
     position: absolute;
-    top: 40%;
-    z-index: 999;
-    display: block;
-    padding: 4% 3%;
-    //width: auto;
-    //height: auto;
-    background: #2a2a2a;
-    color: #fff;
-    font-weight: 600;
-    font-size: 18px;
-    opacity: 0.8;
+    bottom: 3%;
+    z-index: 100;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    border: none;
+    outline: none;
     cursor: pointer;
+    padding: 5px 10px;
+    font-size: 1.8rem;
+    background: $sun-yellow;
+    &:hover {
+        background: darken($sun-yellow, 30%);
+    }
 }
 
-.control_prev:hover, .control_next:hover {
-    opacity: 1;
-    -webkit-transition: all 0.2s ease;
-}
+.carousel ul {
 
-.control_prev {
-    border-radius: 0 2px 2px 0;
-}
-
-.control_next {
-    right: 0;
-    border-radius: 2px 0 0 2px;
-}
-
-.slider_option {
     position: relative;
-    margin: 10px auto;
-    width: 160px;
-    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
+
+.carousel ul li {
+    outline: 1px solid green;
+    float: left;
+
+}
+
 
 /*-----------------------------------------------------------------------
                                    SLIDER
@@ -337,6 +327,7 @@ p {
     }
 
 }
+
 // it's an ul element
 .main-slider .slides{
 
@@ -513,6 +504,7 @@ p {
 
 ------------------------------------------------------------------------*/
 .services, .options, .contact {
+    position: relative;
     h2 {
         font: bold 4rem/7.5rem "Montserrat", sans-serif;
         color: $black;
@@ -535,6 +527,9 @@ p {
 .services {
     margin: 63px 0 0 0;
     padding: 0 0 110px 0;
+    .hide {
+        overflow: hidden;
+    }
 }
 .services__item {
     padding: 0 65px 0 65px;

@@ -39,18 +39,7 @@
         <!-- EOF SLIDER -->
 
 
-        <div id="carousel" class = "o-blue">
-            <button type="button" class="control_next">>></button>
-            <button type="button" class="control_prev"><</button>
-            <ul class="carousel__slides">
-                <li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>
-                <li><img src="img/of2.jpg" alt=" " width="1400" height="700"></li>
-                <li><img src="img/of3.jpg" alt=" " width="1400" height="700"></li>
-                <li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>
-            </ul>
-        </div>
 
-        <button class="controls" id="pause">&#10074;&#10074;</button>
 
 
         <nav class="main-nav ">
@@ -90,44 +79,73 @@
     <!-- EOF HEADER  -->
 
     <!-- CONTENT -->
-    <section class="services text-center">
-        <div class="container-fluid">
+    <section id="services" class="services text-center">
+        <div class="container-fluid hide">
             <div class="row">
                 <h2>SERVICES</h2>
                 <p>Proin iaculis purus consequat sem cure.</p>
 
-                <div class="services__item slideanim col-sm-6 col-lg-4 ">
-                    <a href="#">
-                        <div class="mark mark-e-com"><i class="fa fa-shopping-basket" aria-hidden="true"></i></div>
-                    </a>
-                    <h3>E-Commerce</h3>
-                    <p>Proin iaculis purus consequat sem cure
-                        digni ssim. Donec porttitora entum suscipit
-                        aenean rhoncus posuere odio in tincidunt.</p>
-                </div>
-                <div class="services__item slideanim col-sm-6 col-lg-4 ">
-                    <a href="#">
-                        <div class="mark mark-respons"><i class="fa fa-mobile" aria-hidden="true"></i></div>
-                    </a>
-                    <h3>Responsive Web</h3>
-                    <p>Proin iaculis purus consequat sem cure
-                        digni ssim. Donec porttitora entum suscipit
-                        aenean rhoncus posuere odio in tincidunt.</p>
-                </div>
-                <div class="services__item slideanim col-sm-6 col-sm-push-3 col-lg-4 col-lg-push-0 ">
-                    <a href="#">
-                        <div class="mark mark-perform"><i class="fa fa-rocket" aria-hidden="true"></i></div>
-                    </a>
-                    <h3>Performance</h3>
-                    <p>Proin iaculis purus consequat sem cure
-                        digni ssim. Donec some text porttitora entum suscipit
-                        aenean rhoncus posuere odio in tincidunt that's all.</p>
-                </div>
+                <div id="" class = "carousel slideanim col-sm-4 col-sm-push-4 o-blue">
+                    <div class="row">
+                        <!--<button type="button" class="control_next">>></button>-->
+                        <!--<button type="button" class="control_prev"><</button>-->
+                        <ul class="carousel__slides">
+
+                            <li>
+                                <div class="services__item ">
+                                    <a href="#">
+                                        <div class="mark mark-e-com"><i class="fa fa-shopping-basket" aria-hidden="true"></i></div>
+                                    </a>
+                                    <h3>E-Commerce</h3>
+                                    <p>Proin iaculis purus consequat sem cure
+                                        digni ssim. Donec porttitora entum suscipit
+                                        aenean rhoncus posuere odio in tincidunt.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="services__item ">
+                                    <a href="#">
+                                        <div class="mark mark-respons"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+                                    </a>
+                                    <h3>Responsive Web</h3>
+                                    <p>Proin iaculis purus consequat sem cure
+                                        digni ssim. Donec porttitora entum suscipit
+                                        aenean rhoncus posuere odio in tincidunt.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="services__item ">
+                                    <a href="#">
+                                        <div class="mark mark-perform"><i class="fa fa-rocket" aria-hidden="true"></i></div>
+                                    </a>
+                                    <h3>Performance</h3>
+                                    <p>Proin iaculis purus consequat sem cure
+                                        digni ssim. Donec some text porttitora entum suscipit
+                                        aenean rhoncus posuere odio in tincidunt that's all.</p>
+                                </div>
+                            </li>
+                            <!--<li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>-->
+                            <!--<li><img src="img/of2.jpg" alt=" " width="1400" height="700"></li>-->
+                            <!--<li><img src="img/of3.jpg" alt=" " width="1400" height="700"></li>-->
+                            <!--<li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>-->
+                        </ul>
+
+                    </div>
+                </div >
+                <!--<button class="controls" id="pause">&#10074;&#10074;</button>-->
+
+
             </div>
+            <div class="carousel__controls">
+                <button type="button" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                <button type="button" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+            </div>
+
         </div>
+        <button type="button" class="carousel__pause">&#10074;&#10074;</button>
     </section>
 
-    <section class="options text-center">
+    <section id="options" class="options text-center">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 o-red">
@@ -165,7 +183,7 @@
         </div>
     </section>
 
-    <section class="contact text-center">
+    <section id="contact" class="contact text-center">
         <div class="container-fluid">
             <div class="row">
                 <h2>CONTACT US</h2>
@@ -395,7 +413,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/slider.js"></script>
 <script src="js/carousel.js"></script>
-<script src="js/options.js"></script>
+<script src="js/optionsList.js"></script>
 <script src="js/main.js"></script>
 
 

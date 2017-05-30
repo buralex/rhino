@@ -151,7 +151,8 @@ $(function () {
     var nav = document.querySelector('.main-nav');
     var navbar = document.querySelector('.main-nav__navbar');
 
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (event) {
+        event.stopPropagation();
 
         if (nav.classList.contains('opened')) {
             nav.classList.remove('opened');

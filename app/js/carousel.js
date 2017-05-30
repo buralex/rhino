@@ -39,19 +39,33 @@
 
             var slideInterval = setInterval(moveRightAuto, 4000);
             var playing = true;
-            var pauseButton = document.getElementById('pause');
-            var slideCount = document.querySelectorAll('#carousel ul li').length;
+            var pauseButton = document.querySelector('.carousel__pause');
+
             //var slideWidth = document.documentElement.clientWidth;
 
-            var sliderBox = document.querySelector('#carousel');
-            var slideWidth = document.querySelector('#carousel').offsetWidth;
-            var slideHeight = document.querySelector('#carousel ul li').offsetHeight;
+            var sliderBox = document.querySelector('.carousel');
+            var slideWidth = document.querySelector('.carousel').offsetWidth;
+            //var slideHeight = document.querySelector('.carousel ul li').offsetHeight;
 
-            //var slideHeight = document.querySelector('#carousel ul li').offsetHeight;
+            //var slideHeight = document.querySelector('.carousel ul li').offsetHeight;
+
+
+            var ul = document.querySelector('.carousel ul');
+
+            console.log(ul.children.length);
+
+
+            for (var k = 0, len = ul.children.length; k < len; k++) {
+                var cl = ul.children[k].cloneNode(true);
+                ul.appendChild(cl);
+            }
+
+
+
+            var slideCount = document.querySelectorAll('.carousel ul li').length;
             var UlWidth = slideCount * slideWidth;
 
-            var ul = document.querySelector('#carousel ul');
-            var liArray = document.querySelectorAll('#carousel ul li');
+            var liArray = document.querySelectorAll('.carousel ul li');
 
             function pauseSlideshow(){
                 pauseButton.innerHTML = '&#9658;'; // play character
@@ -71,14 +85,19 @@
                 }	else { playSlideshow();}
             });
 
-            console.log(slideWidth, slideHeight, slideCount);
+            console.log(slideWidth,/* slideHeight,*/ slideCount);
+
+
+            //console.log(ul);
+
+            //console.log(firstCln, lastCln);
 
             //moving last image in the beginning
-            ul.insertBefore(document.querySelector('#carousel ul li:last-child'), ul.firstChild);
+            //ul.insertBefore(document.querySelector('.carousel ul li:last-child'), ul.firstChild);
 
-            sliderBox.style.cssText = 'width: ' + slideWidth + 'px;' + 'height:' + slideHeight + 'px;';
+            sliderBox.style.cssText = 'width: ' + slideWidth + 'px;' /*+ 'height:' + slideHeight + 'px;'*/;
 
-            ul.style.cssText = 'width: ' + UlWidth + 'px;' + 'margin-left:' + (-slideWidth)
+            ul.style.cssText = 'width: ' + UlWidth + 'px;' + 'margin-left:' + 2*(-slideWidth)
                 + 'px;' + 'opacity: 1;';
 
             for ( var i  = 0; i < liArray.length; i++ ) {
@@ -88,54 +107,56 @@
             window.addEventListener('resize', function(event) {
                 //slideWidth = document.documentElement.clientWidth;
                 sliderBox.style.width = '';
-                slideWidth = document.querySelector('#carousel').offsetWidth;
-                slideHeight = document.querySelector('#carousel img').offsetHeight;
+                slideWidth = document.querySelector('.carousel').offsetWidth;
+                //slideHeight = document.querySelector('.carousel').offsetHeight;
                 UlWidth = slideCount * slideWidth;
 
-                sliderBox.style.cssText = 'width: ' + slideWidth + 'px;' + 'height:' + slideHeight + 'px;';
+                sliderBox.style.cssText = 'width: ' + slideWidth + 'px;'/* + 'height:' + slideHeight + 'px;'*/;
 
-                ul.style.cssText = 'width: ' + UlWidth + 'px;' + 'margin-left:' + (-slideWidth)
+                ul.style.cssText = 'width: ' + UlWidth + 'px;' + 'margin-left:' + 2*(-slideWidth)
                     + 'px;' + 'opacity: 1;';
 
                 for ( var i  = 0; i < liArray.length; i++ ) {
                     liArray[i].style.cssText = 'width: ' + slideWidth + 'px;';
                 }
                 console.log('slw', 'slHe', 'slcound');
-                console.log(slideWidth, slideHeight, slideCount);
+                console.log(slideWidth,/* slideHeight,*/ slideCount);
             }.debounce(10));
 
             function moveLeft() {
-                $('#carousel ul').animate({
+                $('.carousel ul').animate({
                     left: + slideWidth
                 }, 300, function () {
-                    ul.insertBefore(document.querySelector('#carousel ul li:last-child'), ul.childNodes[0]);
+                    ul.insertBefore(document.querySelector('.carousel ul li:last-child'), ul.childNodes[0]);
                     ul.style.left = '';
                 });
             };
 
             function moveRight() {
-                $('#carousel ul').animate({
+                $('.carousel ul').animate({
                     left: - slideWidth
                 }, 300, function () {
-                    ul.appendChild(document.querySelector('#carousel ul li:first-child'));
+                    ul.appendChild(document.querySelector('.carousel ul li:first-child'));
                     ul.style.left = '';
                 });
             };
 
             function moveRightAuto() {
-                $('#carousel ul').animate({
+                $('.carousel ul').animate({
                     left: - slideWidth
                 }, 2000, function () {
-                    ul.appendChild(document.querySelector('#carousel ul li:first-child'));
+                    ul.appendChild(document.querySelector('.carousel ul li:first-child'));
                     ul.style.left = '';
                 });
             };
 
-            document.querySelector('.control_prev').addEventListener( 'click' , function() {
+            document.querySelector('.services .prev').addEventListener( 'click' , function(e) {
+                e.stopPropagation();
                 pauseSlideshow();
                 moveLeft();
             });
-            document.querySelector('.control_next').addEventListener( 'click' , function() {
+            document.querySelector('.services .next').addEventListener( 'click' , function(e) {
+                e.stopPropagation();
                 pauseSlideshow();
                 moveRight();
             });
