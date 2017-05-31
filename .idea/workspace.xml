@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c0fb73e-91e6-464d-8f3b-cbfed6fd94be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/js/optionsList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/main.min.css" afterPath="$PROJECT_DIR$/app/css/main.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/carousel.js" afterPath="$PROJECT_DIR$/app/js/carousel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/main.js" afterPath="$PROJECT_DIR$/app/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/options.js" afterPath="$PROJECT_DIR$/app/js/options.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/_media.scss" afterPath="$PROJECT_DIR$/app/sass/_media.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/sass/main.scss" afterPath="$PROJECT_DIR$/app/sass/main.scss" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,8 +53,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1213">
-              <caret line="417" column="0" lean-forward="true" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
+            <state relative-caret-position="244">
+              <caret line="415" column="23" lean-forward="false" selection-start-line="415" selection-start-column="23" selection-end-line="415" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -90,8 +84,8 @@
       <file leaf-file-name="options.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/js/options.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="48" column="17" lean-forward="false" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            <state relative-caret-position="1184">
+              <caret line="229" column="49" lean-forward="false" selection-start-line="229" selection-start-column="49" selection-end-line="229" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -151,8 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sort</find>
-      <find>addObserver</find>
       <find>handler</find>
       <find>#slider</find>
       <find>height</find>
@@ -181,6 +173,8 @@
       <find>toggle</find>
       <find>ser</find>
       <find>remo</find>
+      <find>carouse</find>
+      <find>sort</find>
     </findStrings>
     <replaceStrings>
       <replace>main-</replace>
@@ -226,8 +220,8 @@
         <option value="$PROJECT_DIR$/app/sass/_media.scss" />
         <option value="$PROJECT_DIR$/app/sass/main.scss" />
         <option value="$PROJECT_DIR$/app/js/main.js" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/js/optionsList.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/js/options.js" />
       </list>
     </option>
@@ -554,7 +548,7 @@
       <workItem from="1495963863279" duration="46000" />
       <workItem from="1495995642640" duration="18000" />
       <workItem from="1496053325053" duration="30766000" />
-      <workItem from="1496115619531" duration="62765000" />
+      <workItem from="1496115619531" duration="70888000" />
     </task>
     <task id="LOCAL-00001" summary="2">
       <created>1495052501261</created>
@@ -623,7 +617,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="373524000" />
+    <option name="totallyTimeSpent" value="381647000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -941,14 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1213">
-          <caret line="417" column="0" lean-forward="true" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/optionsList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -957,10 +943,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="415" column="23" lean-forward="false" selection-start-line="415" selection-start-column="23" selection-end-line="415" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/options.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="48" column="17" lean-forward="false" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        <state relative-caret-position="1184">
+          <caret line="229" column="49" lean-forward="false" selection-start-line="229" selection-start-column="49" selection-end-line="229" selection-end-column="49" />
           <folding />
         </state>
       </provider>
