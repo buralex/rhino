@@ -38,10 +38,6 @@
         </div>
         <!-- EOF SLIDER -->
 
-
-
-
-
         <nav class="main-nav ">
             <div class="nav-box">
                 <div class="main-nav__header">
@@ -72,9 +68,6 @@
                 </div>
             </div>
         </nav>
-
-
-
     </header>
     <!-- EOF HEADER  -->
 
@@ -85,7 +78,7 @@
                 <h2>SERVICES</h2>
                 <p>Proin iaculis purus consequat sem cure.</p>
 
-                <div id="" class = "carousel slideanim col-sm-4 col-sm-push-4 o-blue">
+                <div class = "carousel slideanim col-sm-4 col-sm-push-4">
                     <div class="row">
                         <!--<button type="button" class="control_next">>></button>-->
                         <!--<button type="button" class="control_prev"><</button>-->
@@ -124,61 +117,57 @@
                                         aenean rhoncus posuere odio in tincidunt that's all.</p>
                                 </div>
                             </li>
-                            <!--<li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>-->
-                            <!--<li><img src="img/of2.jpg" alt=" " width="1400" height="700"></li>-->
-                            <!--<li><img src="img/of3.jpg" alt=" " width="1400" height="700"></li>-->
-                            <!--<li><img src="img/of1.jpg" alt=" " width="1400" height="700"></li>-->
                         </ul>
 
                     </div>
                 </div >
-                <!--<button class="controls" id="pause">&#10074;&#10074;</button>-->
-
-
             </div>
-            <div class="carousel__controls">
-                <button type="button" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-                <button type="button" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-            </div>
-
         </div>
+
+        <div class="carousel__controls">
+            <button type="button" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+            <button type="button" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+        </div>
+
         <button type="button" class="carousel__pause">&#10074;&#10074;</button>
     </section>
 
     <section id="options" class="options text-center">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12 o-red">
-                    <form id="optionsForm" class="options__form" action="">
-                        <div class="col-sm-6 o-green">
-                            <ul class="offered">
-                                <li data-num="1">Option 1 <span></span></li>
-                                <li data-num="2">Option 2 <span></span></li>
-                                <li data-num="3">Option 3 <span></span></li>
-                                <li data-num="4">Option 4 <span></span></li>
-                                <li data-num="5">Option 5 <span></span></li>
-                                <li data-num="6">Option 6 <span></span></li>
-                                <li data-num="7">Option 7 <span></span></li>
-                                <li data-num="8">Option 8 <span></span></li>
-                                <li data-num="9">Option 9 <span></span></li>
-                                <li data-num="10">Option 10 <span></span></li>
-                            </ul>
-                        </div>
+                <h2>CHOOSE THE OPTIONS</h2>
+                <p>Proin iaculis purus consequat sem cure.</p>
 
-                        <div class="col-sm-6 o-green">
-                            <ul class="chosen">
+                <form id="optionsForm" class="options__form" action="">
+                    <div class=" col-md-1 "></div>
+                    <div class="col-sm-5 col-md-4">
+                        <ul class="offered">
+                            <li data-num="1">Option 1 <span></span></li>
+                            <li data-num="2">Option 2 <span></span></li>
+                            <li data-num="3">Option 3 <span></span></li>
+                            <li data-num="4">Option 4 <span></span></li>
+                            <li data-num="5">Option 5 <span></span></li>
+                            <li data-num="6">Option 6 <span></span></li>
+                            <li data-num="7">Option 7 <span></span></li>
+                            <li data-num="8">Option 8 <span></span></li>
+                            <li data-num="9">Option 9 <span></span></li>
+                            <li data-num="10">Option 10 <span></span></li>
+                        </ul>
+                    </div>
 
-                            </ul>
-                        </div>
+                    <div class="col-sm-2 col-md-2"></div>
 
+                    <div class="col-sm-5 col-md-4">
+                        <ul class="chosen">
+
+                        </ul>
+                    </div>
+                    <div class=" col-md-1"></div>
+                    <div class="col-sm-12">
                         <button type="button" id="addAll" class="btn">ADD ALL</button>
                         <button type="button" id="removeAll" class="btn">REMOVE ALL</button>
-
-                    </form>
-                </div>
-
-                <a href="#" class="btn">READ MORE</a>
-
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -208,11 +197,10 @@
             </div>
         </div>
     </section>
-
-
     <!-- EOF CONTENT -->
-    <!-- MODALS -->
 
+
+    <!-- MODALS -->
 
     <!-- Personal-info -->
     <div id="personInfo" class="modal">
@@ -422,7 +410,7 @@
 
         stickyFooter('.main-footer', '.main-wrapper');
 
-        resposiveSlider('.main-slider');
+        respSlider('.main-slider');
 
         addAnimClass('.slideanim', 'moveUp')
 

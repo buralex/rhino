@@ -1,26 +1,23 @@
 'use strict';
 
+/*
+*   MVC
+*/
+
 /*----------------------------------------------------------------------------------
                                         VIEW
 ----------------------------------------------------------------------------------- */
 
 
-var View = function(){
-    //this.chosenList = chosenList;
-    // this.show = function (n) {
-    //
-    //     console.log(n);
-    //     // var el = document.getElementById("showResult");
-    //     // el.innerHTML = n;
-    // };
+var View = function(chosenList){
+    this.chosenList = chosenList;
 };
-
 
 /*
  * Move all options into one list
  */
 View.prototype.moveAllOptions = function(from, to) {
-    console.log(to);
+
     var elms = document.querySelectorAll('.' + from.className + ' li');
 
     for (var i = 0; i < elms.length; i++) {
@@ -30,7 +27,7 @@ View.prototype.moveAllOptions = function(from, to) {
         } else {
             elms[i].children[0].classList.add('chosen');
         }
-        //console.log(elms +'gg');
+
         to.appendChild(elms[i]);
     }
 };
@@ -39,53 +36,23 @@ View.prototype.moveAllOptions = function(from, to) {
  * Move one option
  */
 View.prototype.moveToChoose = function(el, offeredList, chosenList) {
-    //console.log(chosenList);
-        el.children[0].classList.add('chosen');
-        chosenList.appendChild(el);
 
-    // if (el.parentNode === chosenList) {  // if we press on chosen list
-    //
-    //     el.children[0].classList.remove('chosen');
-    //     offeredList.appendChild(el);
-    //     //listbox.sortItems(offeredList);
-    //
-    // } else {
-    //     //console.log(el.children[0]);
-    //     el.children[0].classList.add('chosen');
-    //     chosenList.appendChild(el);
-    //     //listbox.sortItems(chosenList);
-    // }
+    el.children[0].classList.add('chosen');
+    chosenList.appendChild(el);
 };
 
 /*
  * Move one option
  */
 View.prototype.removeFromChoose = function(el, offeredList, chosenList) {
-    console.log('77777777777777');
 
-        el.children[0].classList.remove('chosen');
-        offeredList.appendChild(el);
-
-    // if (el.parentNode === chosenList) {  // if we press on chosen list
-    //
-    //     el.children[0].classList.remove('chosen');
-    //     offeredList.appendChild(el);
-    //     //listbox.sortItems(offeredList);
-    //
-    // } else {
-    //     //console.log(el.children[0]);
-    //     el.children[0].classList.add('chosen');
-    //     chosenList.appendChild(el);
-    //     //listbox.sortItems(chosenList);
-    // }
+    el.children[0].classList.remove('chosen');
+    offeredList.appendChild(el);
 };
 
 /*----------------------------------------------------------------------------------
                                         MODEL
  ----------------------------------------------------------------------------------- */
-
-
-
 
 var Model = function(elements, chosenList, addButton, removeButton) {
 
@@ -146,60 +113,42 @@ var Controller = function (model, view) {
     this.self = this;
     this.model = model;
     this.view = view;
-
-    // this.handleClick = function (el) {
-    //
-    // };
 };
 
 Controller.prototype.chooseHandle = function (el, offeredList, chosenList) {
     var self = this.self;
-    //console.log(this.self);
-    //console.log(this);
 
     el.addEventListener("click", function (event) {
         event.stopPropagation();
-        //selfContext.model.moveElem(this);
-        console.log(this.parentNode);
-
         if (this.parentNode === offeredList) {  // if we press on chosen list
             self.view.moveToChoose(this, offeredList, chosenList);
             self.model.sortItems(chosenList);
-
-
-            //el.children[0].classList.remove('chosen');
-            //offeredList.appendChild(el);
-            //listbox.sortItems(offeredList);
-
         } else {
             self.view.removeFromChoose(this, offeredList, chosenList)
-            //console.log(self);
             self.model.sortItems(offeredList);
-            //console.log(el.children[0]);
-            //el.children[0].classList.add('chosen');
-            //chosenList.appendChild(el);
-            //listbox.sortItems(chosenList);
         }
-
-
-
-        //self.view.moveOptn(this, offeredList, chosenList);
-        //self.model.sortItems(chosenList);
     });
+};
+
+Controller.prototype.defaultOpt = function ( nums, elms, offeredList, chosenList) {
+    var self = this.self;
+
+    for (var i = 0; i < elms.length; i++) {
+        for (var k = 0; k < nums.length; k++) {
+
+            if (+elms[i].getAttribute('data-num') === nums[k]) {
+                self.view.moveToChoose(elms[i], offeredList, chosenList);
+                self.model.sortItems(chosenList);
+            }
+        }
+    }
+
 };
 
 Controller.prototype.addAllHandle = function (offeredList, chosenList) {
     var self = this.self;
-    //console.log(this.self);
-    //console.log(this);
-
-    // el.addEventListener("click", function (event) {
-    //     event.stopPropagation();
-        //selfContext.model.moveElem(this);
-        this.view.moveAllOptions(offeredList, chosenList);
-        this.model.sortItems(chosenList);
-        //self.view.moveAllOptions(this);
-    // });
+    this.view.moveAllOptions(offeredList, chosenList);
+    this.model.sortItems(chosenList);
 };
 
 Controller.prototype.removeAllHandle = function (chosenList, offeredList) {
@@ -226,8 +175,13 @@ Controller.prototype.removeAllHandle = function (chosenList, offeredList) {
     var removeAllBtn = document.querySelector('#removeAll');
 
     var model = new Model();
-    var view = new View();
+    var view = new View(chosenList);
     var controller = new Controller(model, view);
+
+    /*
+    *  Assigning default options
+    */
+    controller.defaultOpt( [4, 5, 7, 10], optElms, offeredList, chosenList);
 
     var app = {
 
@@ -245,30 +199,19 @@ Controller.prototype.removeAllHandle = function (chosenList, offeredList) {
         chooseEvent: function () {
             for (var i = 0; i < optElms.length; i++) {
                 var el = optElms[i];
-                //console.log(chosenList);
                 controller.chooseHandle(el, offeredList, chosenList);
             }
-            //var el = document.getElementById("calcUser");
-            //el.onclick = controller.handleClick();
         },
+
         addOpt: function () {
             addAllBtn.addEventListener("click", function (event) {
-                //console.log(this.parentNode);
-                //var self = this.
-
                 controller.addAllHandle(offeredList, chosenList);
-
-                //self.moveAllOptions(offeredList, chosenList);
-                //self.sortItems(chosenList);
             });
-            //var el = document.getElementById("calcUser");
-            //el.onclick = controller.handleClick();
         },
+
         removeOpt: function () {
             removeAllBtn.addEventListener("click", function (event) {
-
                 controller.removeAllHandle(chosenList, offeredList);
-
             });
         }
 

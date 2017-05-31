@@ -3,166 +3,189 @@
  */
 'use strict';
 
+var respCarousel;
+(function () {
+    /*------------------------------------------------------------------------------
+     DEBOUNCE (when resizing window)
+     ------------------------------------------------------------------------------*/
+    Function.prototype.debounce = function (milliseconds) {
+        var baseFunction = this,
+            timer = null,
+            wait = milliseconds;
 
-    (function() {
-        /*------------------------------------------------------------------------------
-         DEBOUNCE (when resizing window)
-         ------------------------------------------------------------------------------*/
-        Function.prototype.debounce = function (milliseconds) {
-            var baseFunction = this,
-                timer = null,
-                wait = milliseconds;
+        return function () {
+            var self = this,
+                args = arguments;
 
-            return function () {
-                var self = this,
-                    args = arguments;
+            function complete() {
+                baseFunction.apply(self, args);
+                timer = null;
+            }
 
-                function complete() {
-                    baseFunction.apply(self, args);
-                    timer = null;
-                }
+            if (timer) {
+                clearTimeout(timer);
+            }
 
-                if (timer) {
-                    clearTimeout(timer);
-                }
-
-                timer = setTimeout(complete, wait);
-            };
+            timer = setTimeout(complete, wait);
         };
+    };
 
-        /*------------------------------------------------------------------------------
-         SLIDER
-         ------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------
+                                CAROUSEL
+     ------------------------------------------------------------------------------*/
 
-        //document.addEventListener('DOMContentLoaded', function(){
-        function responsiveSlider() {
+    var ResponsiveCarousel = function(sliderBox, ul, prev, next, pauseButton) {
+        this.self = this;
+        this.sliderBox = sliderBox;
+        this.prev = prev;
+        this.next = next;
+        this.pauseButton = pauseButton;
+        this.slideInterval = '';
+        this.playing = true;
+        this.slideWidth = sliderBox.offsetWidth;
+        this.ul = ul;
+        this.slideCount = '';
+        this.UlWidth = '';
 
-            var slideInterval = setInterval(moveRightAuto, 4000);
-            var playing = true;
-            var pauseButton = document.querySelector('.carousel__pause');
-
-            //var slideWidth = document.documentElement.clientWidth;
-
-            var sliderBox = document.querySelector('.carousel');
-            var slideWidth = document.querySelector('.carousel').offsetWidth;
-            //var slideHeight = document.querySelector('.carousel ul li').offsetHeight;
-
-            //var slideHeight = document.querySelector('.carousel ul li').offsetHeight;
-
-
-            var ul = document.querySelector('.carousel ul');
-
-            console.log(ul.children.length);
-
-
-            for (var k = 0, len = ul.children.length; k < len; k++) {
-                var cl = ul.children[k].cloneNode(true);
-                ul.appendChild(cl);
-            }
+    };
 
 
 
-            var slideCount = document.querySelectorAll('.carousel ul li').length;
-            var UlWidth = slideCount * slideWidth;
+    ResponsiveCarousel.prototype.cloneChilds = function () {
+        var self = this.self;
 
-            var liArray = document.querySelectorAll('.carousel ul li');
+        for (var k = 0, len = this.ul.children.length; k < len; k++) {
+            var cl = this.ul.children[k].cloneNode(true);
+            this.ul.appendChild(cl);
+        }
 
-            function pauseSlideshow(){
-                pauseButton.innerHTML = '&#9658;'; // play character
-                playing = false;
-                clearInterval(slideInterval);
-            }
+    };
 
-            function playSlideshow(){
-                pauseButton.innerHTML = '&#10074;&#10074;'; // pause character
-                playing = true;
-                slideInterval = setInterval(moveRight, 4000);
-            }
+    ResponsiveCarousel.prototype.pauseSlideshow = function () {
+        var self = this.self;
 
-            pauseButton.addEventListener( 'click' , function() {
-                if(playing){
-                    pauseSlideshow();
-                }	else { playSlideshow();}
-            });
+        this.pauseButton.innerHTML = '&#9658;'; // play character
+        this.playing = false;
+        clearInterval(this.slideInterval);
+    };
 
-            console.log(slideWidth,/* slideHeight,*/ slideCount);
+    ResponsiveCarousel.prototype.playSlideshow = function () {
+        var self = this.self;
 
+        this.pauseButton.innerHTML = '&#10074;&#10074;'; // pause character
+        this.playing = true;
+        this.slideInterval = setInterval(function(){ self.moveRightAuto() }, 4000);
+    };
 
-            //console.log(ul);
+    ResponsiveCarousel.prototype.inlineStyles = function () {
+        var self = this.self;
 
-            //console.log(firstCln, lastCln);
+        this.sliderBox.style.cssText = 'width: ' + this.slideWidth + 'px;';
 
-            //moving last image in the beginning
-            //ul.insertBefore(document.querySelector('.carousel ul li:last-child'), ul.firstChild);
+        this.ul.style.cssText = 'width: ' + this.UlWidth + 'px;' + 'margin-left:' + 2 * (-this.slideWidth)
+            + 'px;' + 'opacity: 1;';
 
-            sliderBox.style.cssText = 'width: ' + slideWidth + 'px;' /*+ 'height:' + slideHeight + 'px;'*/;
+        for (var i = 0; i < this.ul.children.length; i++) {
+            this.ul.children[i].style.cssText = 'width: ' + this.slideWidth + 'px;';
+        }
+    };
 
-            ul.style.cssText = 'width: ' + UlWidth + 'px;' + 'margin-left:' + 2*(-slideWidth)
-                + 'px;' + 'opacity: 1;';
+    ResponsiveCarousel.prototype.resizeListener = function () {
+        var self = this.self;
 
-            for ( var i  = 0; i < liArray.length; i++ ) {
-                liArray[i].style.cssText = 'width: ' + slideWidth + 'px;';
-            }
+            window.addEventListener('resize', function (event) {
+                self.sliderBox.style.width = '';
+                self.slideWidth = self.sliderBox.offsetWidth;
+                self.UlWidth = self.slideCount * self.slideWidth;
 
-            window.addEventListener('resize', function(event) {
-                //slideWidth = document.documentElement.clientWidth;
-                sliderBox.style.width = '';
-                slideWidth = document.querySelector('.carousel').offsetWidth;
-                //slideHeight = document.querySelector('.carousel').offsetHeight;
-                UlWidth = slideCount * slideWidth;
+                self.sliderBox.style.cssText = 'width: ' + self.slideWidth + 'px;';
 
-                sliderBox.style.cssText = 'width: ' + slideWidth + 'px;'/* + 'height:' + slideHeight + 'px;'*/;
-
-                ul.style.cssText = 'width: ' + UlWidth + 'px;' + 'margin-left:' + 2*(-slideWidth)
+                self.ul.style.cssText = 'width: ' + self.UlWidth + 'px;' + 'margin-left:' + 2 * (-self.slideWidth)
                     + 'px;' + 'opacity: 1;';
 
-                for ( var i  = 0; i < liArray.length; i++ ) {
-                    liArray[i].style.cssText = 'width: ' + slideWidth + 'px;';
+                for (var i = 0; i < self.ul.children.length; i++) {
+                    self.ul.children[i].style.cssText = 'width: ' + self.slideWidth + 'px;';
                 }
-                console.log('slw', 'slHe', 'slcound');
-                console.log(slideWidth,/* slideHeight,*/ slideCount);
             }.debounce(10));
 
-            function moveLeft() {
-                $('.carousel ul').animate({
-                    left: + slideWidth
-                }, 300, function () {
-                    ul.insertBefore(document.querySelector('.carousel ul li:last-child'), ul.childNodes[0]);
-                    ul.style.left = '';
-                });
-            };
+    };
 
-            function moveRight() {
-                $('.carousel ul').animate({
-                    left: - slideWidth
-                }, 300, function () {
-                    ul.appendChild(document.querySelector('.carousel ul li:first-child'));
-                    ul.style.left = '';
-                });
-            };
+    ResponsiveCarousel.prototype.moveLeft = function () {
+        var self = this.self;
 
-            function moveRightAuto() {
-                $('.carousel ul').animate({
-                    left: - slideWidth
-                }, 2000, function () {
-                    ul.appendChild(document.querySelector('.carousel ul li:first-child'));
-                    ul.style.left = '';
-                });
-            };
+        $(self.ul).animate({
+            left: +self.slideWidth
+        }, 300, function () {
+            self.ul.insertBefore(self.ul.children[self.ul.children.length-1], self.ul.children[0]);
+            self.ul.style.left = '';
+        });
+    };
 
-            document.querySelector('.services .prev').addEventListener( 'click' , function(e) {
-                e.stopPropagation();
-                pauseSlideshow();
-                moveLeft();
-            });
-            document.querySelector('.services .next').addEventListener( 'click' , function(e) {
-                e.stopPropagation();
-                pauseSlideshow();
-                moveRight();
-            });
+    ResponsiveCarousel.prototype.moveRight = function () {
+        var self = this.self;
 
-        }
-        responsiveSlider();
+        $(self.ul).animate({
+            left: -self.slideWidth
+        }, 300, function () {
+            self.ul.appendChild(self.ul.children[0]);
+            self.ul.style.left = '';
+        });
+    };
 
-    })();
+    ResponsiveCarousel.prototype.moveRightAuto = function () {
+        var self = this.self;
+
+        $(self.ul).animate({
+            left: -self.slideWidth
+        }, 2000, function () {
+            self.ul.appendChild(self.ul.children[0]);
+            self.ul.style.left = '';
+        });
+    };
+
+    ResponsiveCarousel.prototype.init = function () {
+        var self = this.self;
+        this.cloneChilds();
+        this.slideCount = ul.children.length;
+        this.UlWidth = this.slideCount * this.slideWidth;
+        this.inlineStyles();
+        this.resizeListener();
+        this.slideInterval = setInterval(function(){ self.moveRightAuto() }, 4000);
+
+        this.pauseButton.addEventListener('click', function (e) {
+            if (self.playing) {
+                self.pauseSlideshow();
+            } else {
+                self.playSlideshow();
+            }
+        });
+
+        this.prev.addEventListener('click', function (e) {
+            e.stopPropagation();
+            self.pauseSlideshow();
+            self.moveLeft();
+        });
+
+        this.next.addEventListener('click', function (e) {
+            e.stopPropagation();
+            self.pauseSlideshow();
+            self.moveRight();
+        });
+    };
+
+    /*----------------------------------------------------------------------------------
+     INITIALIZATION
+     ----------------------------------------------------------------------------------- */
+
+    var sliderBox = document.querySelector('.carousel');
+    var ul = document.querySelector('.carousel ul');
+    var pauseButton = document.querySelector('.carousel__pause');
+    var prev = document.querySelector('.services .prev');
+    var next = document.querySelector('.services .next');
+
+    var respCarousel = new ResponsiveCarousel(sliderBox, ul, prev, next, pauseButton);
+    respCarousel.init();
+
+
+})();
 

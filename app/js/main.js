@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*------------------------------------------------------------------------------
  DEBOUNCE
@@ -34,81 +34,28 @@ Function.prototype.debounce = function (milliseconds) {
     var personInfo = document.querySelector('#personInfo');
 
 // Get the button that opens the modal
-    var btn = document.getElementById("modalBtn");
+    var btn = document.getElementById('modalBtn');
 
     // When the user clicks the button, open the modal
     btn.onclick = function () {
-        personInfo.style.display = "block";
+        personInfo.style.display = 'block';
     }
 
     // Get the <span> element that closes the modal
-    var span = document.querySelector("#personInfo .close");
+    var span = document.querySelector('#personInfo .close');
 
     // When the user clicks on <span> (x), close the modal
-    span.addEventListener("click", function (event) {
-        personInfo.style.display = "none";
+    span.addEventListener('click', function (event) {
+        personInfo.style.display = 'none';
     });
 
-    window.addEventListener("click", function (event) {
+    window.addEventListener('click', function (event) {
         if (event.target == personInfo) {
-            personInfo.style.display = "none";
+            personInfo.style.display = 'none';
         }
     });
 
 })();
-
-/*------------------------------------------------------------------------------
-
- COUNTER (COOKIE)
-
- ------------------------------------------------------------------------------*/
-// (function () {
-//
-//     function setCookie(cname, cvalue, exdays) {
-//         var d = new Date();
-//         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-//         var expires = "expires=" + d.toUTCString();
-//         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-//     }
-//
-//     function getCookie(cname) {
-//         var name = cname + "=";
-//         var ca = document.cookie.split(';'); //cookie array
-//         for (var i = 0; i < ca.length; i++) {
-//             var c = ca[i];
-//             while (c.charAt(0) == ' ') {
-//                 c = c.substring(1);
-//             }
-//             if (c.indexOf(name) == 0) {
-//                 return c.substring(name.length, c.length);
-//             }
-//         }
-//         return "";
-//     }
-//
-//     var personInfo = document.querySelector('#personInfo');
-// // checking 3 times
-//     function showModal() {
-//         var counter;
-//         if (getCookie("user") != "") {
-//             counter = Number(getCookie("user"));
-//         } else {
-//             setCookie("user", 1, "30");
-//             counter = Number(getCookie("user"));
-//         }
-//
-//         if (counter < 4 && counter != 0) {
-//             document.querySelector('.count').appendChild(document.createTextNode(" " + counter));
-//             personInfo.style.cssText = 'display: block;';
-//             counter++;
-//             setCookie("user", counter, "30");
-//         }
-//         return counter;
-//     }
-//
-//     showModal();
-//     //document.cookie = "user; expires=Thu, 18 Dec 2013 12:00:00 UTC";
-// })();
 
 
 /*---------------------------------------------------------------
@@ -151,7 +98,7 @@ $(function () {
     var nav = document.querySelector('.main-nav');
     var navbar = document.querySelector('.main-nav__navbar');
 
-    btn.addEventListener("click", function (event) {
+    btn.addEventListener('click', function (event) {
         event.stopPropagation();
 
         if (nav.classList.contains('opened')) {
@@ -226,14 +173,14 @@ function stickyFooter(footerContainer, wrapCont) {
 
     function stick() {
         var footerHeight = document.querySelector(footerContainer).offsetHeight;
-        document.querySelector(footerContainer).style.cssText = "margin-top: -" + footerHeight + "px;";
-        document.querySelector(wrapCont).style.cssText = "padding-bottom: " + footerHeight + "px;";
+        document.querySelector(footerContainer).style.cssText = 'margin-top: -' + footerHeight + 'px;';
+        document.querySelector(wrapCont).style.cssText = 'padding-bottom: ' + footerHeight + 'px;';
     }
 
-    window.addEventListener("load", function (event) {
+    window.addEventListener('load', function (event) {
         stick()
     }.debounce(10));
-    window.addEventListener("resize", function (event) {
+    window.addEventListener('resize', function (event) {
         stick()
     }.debounce(10));
 
@@ -247,23 +194,36 @@ function stickyFooter(footerContainer, wrapCont) {
 
 (function () {
 
-    $("#contactForm").on('submit', function (e) {
+    $('#contactForm').on('submit', function (e) {
 
         $('.icon-load').show();
 
+        /*
+        * getting options
+        */
+        var choosenOptions = document.querySelectorAll('.chosen li');
+
+        var dataOpt = [];
+        for (var x = 0; x < choosenOptions.length; x++) {
+            var link = choosenOptions[x];
+            dataOpt.push(choosenOptions[x].textContent);
+        }
+
         var formData = new FormData(this);
-        formData.append('chosenOption', 'this is option')
+
+        formData.append('chosenOption', dataOpt);
+
         $.ajax({
-            url: "form.php",
+            url: 'form.php',
             type: 'POST',
             data: formData,
-            mimeType: "multipart/form-data",
+            mimeType: 'multipart/form-data',
             contentType: false,
             cache: false,
             processData: false,
             success: function (data, textStatus, jqXHR) {
                 $('.icon-load').hide();
-                document.querySelector('#contactModal').style.display = "block";
+                document.querySelector('#contactModal').style.display = 'block';
             },
             error: function (jqXHR, textStatus, errorThrown) {
 
@@ -285,14 +245,17 @@ function stickyFooter(footerContainer, wrapCont) {
 
 
     // Get the <span> element that closes the modal
-    var span = document.querySelector("#contactModal .close");
+    var span = document.querySelector('#contactModal .close');
 
     // When the user clicks on <span> (x), close the modal
+    span.addEventListener('click', function (event) {
+            sendModal.style.display = 'none';
+    });
 
 
-    window.addEventListener("click", function (event) {
+    window.addEventListener('click', function (event) {
         if (event.target == sendModal) {
-            sendModal.style.display = "none";
+            sendModal.style.display = 'none';
         }
     });
 
@@ -314,14 +277,14 @@ function addAnimClass(elemClass, animClass) {
         function doSmth(el) {
             if (el.getBoundingClientRect().top < 600) {
 
-                if (window.getComputedStyle(el).visibility == "hidden") {
+                if (window.getComputedStyle(el).visibility == 'hidden') {
                     el.classList.add(animClass);
                 }
             }
         }
     }
 
-    window.addEventListener("scroll", function (event) {
+    window.addEventListener('scroll', function (event) {
         calcDistance()
     }.debounce(10));
 }
@@ -329,13 +292,13 @@ function addAnimClass(elemClass, animClass) {
 (function () {
     function calcDistance(e) {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("toTopBtn").style.display = "block";
+            document.getElementById('toTopBtn').style.display = 'block';
         } else {
-            document.getElementById("toTopBtn").style.display = "none";
+            document.getElementById('toTopBtn').style.display = 'none';
         }
     }
 
-    window.addEventListener("scroll", function (event) {
+    window.addEventListener('scroll', function (event) {
         calcDistance()
     }.debounce(10));
 })();
@@ -344,9 +307,9 @@ function addAnimClass(elemClass, animClass) {
  ------------------------------------------------------------------------------*/
 
 // Add smooth scrolling to all links in navbar + footer link
-$(".main-nav__navbar a, #toTopBtn").on('click', function (event) {
+$('.main-nav__navbar a, #toTopBtn').on('click', function (event) {
     // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
+    if (this.hash !== '') {
         // Prevent default anchor click behavior
         event.preventDefault();
 
