@@ -194,13 +194,11 @@ function stickyFooter(footerContainer, wrapCont) {
 
 (function () {
 
-    $('#contactForm').on('submit', function (e) {
+    document.querySelector("#contactForm").addEventListener("submit", function(e) {
 
-        $('.icon-load').show();
+        document.querySelector('.icon-load').style.display = 'block';
 
-        /*
-        * getting options
-        */
+        /*-------------------- getting options ------------------------------------*/
         var choosenOptions = document.querySelectorAll('.chosen li');
 
         var dataOpt = [];
@@ -208,31 +206,25 @@ function stickyFooter(footerContainer, wrapCont) {
             var link = choosenOptions[x];
             dataOpt.push(choosenOptions[x].textContent);
         }
-
-        var formData = new FormData(this);
-
+        /*-------------------- end getting options ------------------------------------*/
+        var formData = new FormData(document.querySelector('#contactForm'));
         formData.append('chosenOption', dataOpt);
 
-        $.ajax({
-            url: 'form.php',
-            type: 'POST',
-            data: formData,
-            mimeType: 'multipart/form-data',
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function (data, textStatus, jqXHR) {
-                $('.icon-load').hide();
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.open("POST", "form.php", true);
+
+        xhttp.onload = function(oEvent) {
+            if (xhttp.status == 200) {
+                document.querySelector('.icon-load').style.display = 'none';
                 document.querySelector('#contactModal').style.display = 'block';
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-
+            } else {
+                alert("Error! not sent!");
             }
-        });
-        e.preventDefault(); //Prevent Default action.
-        return false;
+        };
+        xhttp.send(formData);
+        e.preventDefault();
     });
-
 })();
 
 /*------------------------------------------------------------------------------
